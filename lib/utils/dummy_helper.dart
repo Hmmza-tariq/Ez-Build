@@ -9,6 +9,8 @@ class DummyHelper {
       id: 1,
       images: [Constants.product1, Constants.product1, Constants.product1],
       title: 'Item #1',
+      description:
+          'This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. ',
       quantity: '100 items',
       price: 250.99,
       category: 'Building',
@@ -19,6 +21,8 @@ class DummyHelper {
       id: 2,
       images: [Constants.product2, Constants.product2, Constants.product2],
       title: 'Item #2',
+      description:
+          'This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. ',
       quantity: '400 items',
       price: 20.99,
       category: 'Decoration',
@@ -29,6 +33,8 @@ class DummyHelper {
       id: 3,
       images: [Constants.product3, Constants.product3, Constants.product3],
       title: 'Item #3',
+      description:
+          'This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. ',
       quantity: '30 items',
       price: 40.99,
       category: 'Clothes',
@@ -39,6 +45,8 @@ class DummyHelper {
       id: 4,
       images: [Constants.product4, Constants.product4, Constants.product4],
       title: 'Item #4',
+      description:
+          'This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. ',
       quantity: '100 items',
       price: 250.99,
       category: 'Building',
@@ -49,6 +57,8 @@ class DummyHelper {
       id: 5,
       images: [Constants.product5, Constants.product5, Constants.product5],
       title: 'Item #5',
+      description:
+          'This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. ',
       quantity: '400 items',
       price: 20.99,
       category: 'Decoration',
@@ -59,6 +69,8 @@ class DummyHelper {
       id: 6,
       images: [Constants.product6, Constants.product6, Constants.product6],
       title: 'Item #6',
+      description:
+          'This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. ',
       quantity: '30 items',
       price: 40.99,
       category: 'Clothes',

@@ -1,19 +1,21 @@
 class ProductModel {
-  int? id;
-  List<String>? images;
-  String? title;
-  double? price;
-  String? quantity;
-  String? category;
-  String? location;
-  bool? isFavorite;
+  int id;
+  List<String> images;
+  String title;
+  String description;
+  double price;
+  String quantity;
+  String category;
+  String location;
+  bool isFavorite;
   ProductModel(
-      {this.id,
-      this.images,
-      this.title,
-      this.price,
-      this.quantity,
-      this.category,
-      this.location,
-      this.isFavorite});
+      {required this.id,
+      required this.images,
+      required this.title,
+      required this.description,
+      required this.price,
+      required this.quantity,
+      required this.category,
+      required this.location,
+      required this.isFavorite});
 }

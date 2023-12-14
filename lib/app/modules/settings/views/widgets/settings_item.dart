@@ -9,6 +9,7 @@ import '../../controllers/settings_controller.dart';
 
 class SettingsItem extends StatelessWidget {
   final String title;
+  final String description;
   final String icon;
   final bool isAccount;
   final bool isDark;
@@ -18,6 +19,7 @@ class SettingsItem extends StatelessWidget {
     required this.icon,
     this.isAccount = false,
     this.isDark = false,
+    required this.description,
   }) : super(key: key);
 
   @override
@@ -31,7 +33,7 @@ class SettingsItem extends StatelessWidget {
       subtitle: !isAccount
           ? null
           : Text(
-              '+191 23 456 7890',
+              description,
               style: theme.textTheme.displaySmall,
             ),
       leading: CircleAvatar(

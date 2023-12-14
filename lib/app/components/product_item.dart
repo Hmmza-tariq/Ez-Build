@@ -25,14 +25,6 @@ class ProductItem extends StatelessWidget {
           children: [
             Stack(
               children: [
-                // Container(
-                //   // width: double.infinity,
-                //   height: 200.h,
-                //   decoration: BoxDecoration(
-                //     color: const Color(0xFFEDF1FA),
-                //     borderRadius: BorderRadius.circular(25.r),
-                //   ),
-                // ),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(24),
@@ -42,7 +34,7 @@ class ProductItem extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(18.r),
                     child: Image.asset(
-                      product.images![0],
+                      product.images[0],
                       height: 200.h,
                       // width: 100.w,
                     ).animate().slideX(
@@ -59,17 +51,19 @@ class ProductItem extends StatelessWidget {
                     id: 'FavoriteButton',
                     builder: (controller) => GestureDetector(
                       onTap: () => controller.onFavoriteButtonPressed(
-                          productId: product.id!),
+                          productId: product.id),
                       child: CircleAvatar(
                         radius: 18.r,
                         backgroundColor: Colors.white,
                         child: SvgPicture.asset(
-                          product.isFavorite!
-                              ? Constants.favFilledIcon
-                              : Constants.favOutlinedIcon,
-                          color:
-                              product.isFavorite! ? null : theme.primaryColor,
-                        ),
+                            product.isFavorite
+                                ? Constants.favFilledIcon
+                                : Constants.favOutlinedIcon,
+                            theme: SvgTheme(
+                              currentColor: product.isFavorite
+                                  ? Theme.of(context).primaryColor
+                                  : theme.primaryColor,
+                            )),
                       ),
                     ),
                   ),
@@ -79,7 +73,7 @@ class ProductItem extends StatelessWidget {
             10.verticalSpace,
             Expanded(
               child: Text(
-                product.title!,
+                product.title,
                 style: theme.textTheme.bodyMedium!
                     .copyWith(
                       overflow: TextOverflow.ellipsis,
@@ -93,7 +87,7 @@ class ProductItem extends StatelessWidget {
                   ),
             ),
             5.verticalSpace,
-            Text('\$${product.price}', style: theme.textTheme.displaySmall)
+            Text('Rs ${product.price}', style: theme.textTheme.displaySmall)
                 .animate()
                 .fade()
                 .slideY(

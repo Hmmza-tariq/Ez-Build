@@ -6,8 +6,8 @@ import 'package:ez_build/app/modules/auth/binding/auth_binding.dart';
 import 'package:ez_build/app/modules/auth/view/auth_screen.dart';
 import '../modules/base/bindings/base_binding.dart';
 import '../modules/base/views/base_view.dart';
-import '../modules/cart/bindings/cart_binding.dart';
-import '../modules/cart/views/cart_view.dart';
+import '../modules/Chat/bindings/chat_binding.dart';
+import '../modules/Chat/views/chat_view.dart';
 import '../modules/favorites/bindings/favorites_binding.dart';
 import '../modules/favorites/views/favorites_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -55,9 +55,9 @@ class AppPages {
       binding: FavoritesBinding(),
     ),
     GetPage(
-      name: _Paths.CART,
-      page: () => const CartView(),
-      binding: CartBinding(),
+      name: _Paths.Chat,
+      page: () => const ChatView(),
+      binding: ChatBinding(),
     ),
     GetPage(
       name: _Paths.NOTIFICATIONS,

@@ -20,7 +20,7 @@ class NotificationItem extends StatelessWidget {
       ),
       child: ListTile(
         title: Text(
-          'New Notification received\nyour cart waiting for checkout',
+          'New Notification received\nnew Message from user@Hexagone',
           style: theme.textTheme.displaySmall?.copyWith(
             fontWeight: FontWeight.normal,
           ),

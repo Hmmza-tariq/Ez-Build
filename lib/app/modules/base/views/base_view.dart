@@ -1,3 +1,4 @@
+import 'package:ez_build/app/modules/add_item/views/add_item_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -5,10 +6,9 @@ import 'package:get/get.dart';
 
 import '../../../../utils/constants.dart';
 import '../controllers/base_controller.dart';
-import '../../cart/views/cart_view.dart';
+import '../../Chat/views/chat_view.dart';
 import '../../favorites/views/favorites_view.dart';
 import '../../home/views/home_view.dart';
-import '../../notifications/views/notifications_view.dart';
 import '../../settings/views/settings_view.dart';
 
 class BaseView extends GetView<BaseController> {
@@ -26,9 +26,9 @@ class BaseView extends GetView<BaseController> {
             index: controller.currentIndex,
             children: const [
               HomeView(),
+              ChatView(),
+              AddItemView(),
               FavoritesView(),
-              CartView(),
-              NotificationsView(),
               SettingsView()
             ],
           ),
@@ -68,17 +68,21 @@ class BaseView extends GetView<BaseController> {
                   icon: Constants.homeIcon,
                 ),
                 _mBottomNavItem(
+                  label: 'Chat',
+                  icon: Constants.chatIcon,
+                ),
+                _mBottomNavItem(
+                  label: 'add',
+                  icon: Constants.addIcon,
+                ),
+                _mBottomNavItem(
                   label: 'Favorites',
                   icon: Constants.favoritesIcon,
                 ),
-                _mBottomNavItem(
-                  label: 'Cart',
-                  icon: Constants.cartIcon,
-                ),
-                _mBottomNavItem(
-                  label: 'Notifications',
-                  icon: Constants.notificationsIcon,
-                ),
+                // _mBottomNavItem(
+                //   label: 'Notifications',
+                //   icon: Constants.notificationsIcon,
+                // ),
                 _mBottomNavItem(
                   label: 'Settings',
                   icon: Constants.settingsIcon,
@@ -99,8 +103,7 @@ class BaseView extends GetView<BaseController> {
         icon,
         theme: SvgTheme(currentColor: Get.theme.iconTheme.color!),
       ),
-      activeIcon: SvgPicture.asset(icon,
-          theme: SvgTheme(currentColor: Get.theme.primaryColor)),
+      activeIcon: SvgPicture.asset(icon, color: Get.theme.primaryColor),
     );
   }
 }
