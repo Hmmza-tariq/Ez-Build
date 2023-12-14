@@ -28,7 +28,7 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(18.r),
                     child: Image.asset(
-                      controller.product.images!,
+                      controller.product.images![0],
                       fit: BoxFit.cover,
                       // height: 500.h,
                     ).animate().slideX(
@@ -106,16 +106,16 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                       style: theme.textTheme.displayMedium,
                     ),
                     30.horizontalSpace,
-                    const Icon(Icons.star_rounded, color: Color(0xFFFFC542)),
+                    const Icon(Icons.location_on, color: Color(0xFFFFC542)),
                     5.horizontalSpace,
                     Text(
-                      controller.product.rating!.toString(),
+                      controller.product.location!,
                       style: theme.textTheme.bodyMedium?.copyWith(
                           fontSize: 16.sp, fontWeight: FontWeight.bold),
                     ),
                     5.horizontalSpace,
                     Text(
-                      '(${controller.product.reviews!})',
+                      '(${controller.product.category!})',
                       style:
                           theme.textTheme.bodyMedium?.copyWith(fontSize: 16.sp),
                     ),
@@ -183,7 +183,7 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                 child: CustomButton(
                   text: 'Add to Cart',
                   onPressed: () => controller.onAddToCartPressed(),
-                  disabled: controller.product.quantity! > 0,
+                  // disabled: controller.product.quantity! > 0,
                   fontSize: 16.sp,
                   radius: 12.r,
                   verticalPadding: 12.h,

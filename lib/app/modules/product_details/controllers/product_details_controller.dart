@@ -6,7 +6,6 @@ import '../../base/controllers/base_controller.dart';
 import '../../cart/controllers/cart_controller.dart';
 
 class ProductDetailsController extends GetxController {
-
   // get product details from arguments
   ProductModel product = Get.arguments;
 
@@ -22,8 +21,8 @@ class ProductDetailsController extends GetxController {
   /// when the user press on add to cart button
   onAddToCartPressed() {
     var mProduct = DummyHelper.products.firstWhere((p) => p.id == product.id);
-    mProduct.quantity = mProduct.quantity! + 1;
-    mProduct.size = selectedSize;
+    // mProduct.quantity = mProduct.quantity! + 1;
+    // mProduct.size = selectedSize;
     Get.find<CartController>().getCartProducts();
     Get.back();
   }
@@ -34,5 +33,4 @@ class ProductDetailsController extends GetxController {
     selectedSize = size;
     update(['Size']);
   }
-
 }

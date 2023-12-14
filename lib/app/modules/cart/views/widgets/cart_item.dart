@@ -35,7 +35,7 @@ class CartItem extends GetView<CartController> {
                   left: 15.w,
                   bottom: -150.h,
                   child: Image.asset(
-                    product.images!,
+                    product.images![0],
                     height: 250.h,
                   ),
                 ),
@@ -53,7 +53,7 @@ class CartItem extends GetView<CartController> {
                 overflow: TextOverflow.ellipsis,
               ),
               5.verticalSpace,
-              Text('Size: ${product.size}',
+              Text('Size: ${product.quantity}',
                   style: theme.textTheme.bodyMedium?.copyWith(fontSize: 16.sp)),
               5.verticalSpace,
               Text(

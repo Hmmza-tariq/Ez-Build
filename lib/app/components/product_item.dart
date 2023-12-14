@@ -42,7 +42,7 @@ class ProductItem extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(18.r),
                     child: Image.asset(
-                      product.images!,
+                      product.images![0],
                       height: 200.h,
                       // width: 100.w,
                     ).animate().slideX(

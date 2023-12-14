@@ -27,6 +27,7 @@ class Constants {
   static const product3 = 'assets/images/product (3).jpg';
   static const product4 = 'assets/images/product (4).jpg';
   static const product5 = 'assets/images/product (5).jpg';
+  static const product6 = 'assets/images/product (6).jpg';
 
   static const noData = 'assets/images/no_data.png';
 }
