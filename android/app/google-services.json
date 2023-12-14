@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "137010540800",
+    "project_id": "ez-build-d3411",
+    "storage_bucket": "ez-build-d3411.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137010540800:android:76e90f784afa561765c3e5",
+        "android_client_info": {
+          "package_name": "com.hexagone.ez_build"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChjF02HNcCflOS4z2UtF2wu7LgTt7u5L4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
