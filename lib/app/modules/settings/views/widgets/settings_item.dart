@@ -13,6 +13,7 @@ class SettingsItem extends StatelessWidget {
   final String icon;
   final bool isAccount;
   final bool isDark;
+  final void Function()? onTap;
   const SettingsItem({
     Key? key,
     required this.title,
@@ -20,12 +21,14 @@ class SettingsItem extends StatelessWidget {
     this.isAccount = false,
     this.isDark = false,
     required this.description,
+    this.onTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final theme = context.theme;
     return ListTile(
+      onTap: onTap,
       title: Text(title,
           style: theme.textTheme.displayMedium?.copyWith(
             fontSize: 16.sp,

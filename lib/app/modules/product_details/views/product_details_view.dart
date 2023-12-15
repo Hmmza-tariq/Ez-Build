@@ -90,9 +90,10 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                                     : Constants.favOutlinedIcon,
                                 width: 16.w,
                                 height: 15.h,
-                                color: controller.product.isFavorite
+                                colorFilter: controller.product.isFavorite
                                     ? null
-                                    : Colors.white,
+                                    : const ColorFilter.mode(
+                                        Colors.white, BlendMode.srcIn),
                               ),
                             ),
                           ),

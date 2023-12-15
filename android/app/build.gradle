@@ -68,4 +68,6 @@ flutter {
 
 dependencies {
     implementation 'androidx.multidex:multidex:2.0.1'
+    //compile 'com.facebook.android:facebook-applinks:[4,5)'
+
 }

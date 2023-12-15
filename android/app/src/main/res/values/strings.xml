@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="facebook_app_id">326955176797258</string>
+    <string name="fb_login_protocol_scheme">fb326955176797258</string>
+    <string name="facebook_client_token">ad9775be9b68b92cadae0cd93ab6dcff</string>
    <string name="app_name">Ez-Build</string>
 </resources>

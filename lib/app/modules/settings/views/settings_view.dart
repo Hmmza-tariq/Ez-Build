@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -63,10 +64,11 @@ class SettingsView extends GetView<SettingsController> {
               description: '',
             ),
             25.verticalSpace,
-            const SettingsItem(
+            SettingsItem(
               title: 'Sign Out',
               icon: Constants.logoutIcon,
               description: '',
+              onTap: () => FirebaseAuth.instance.signOut(),
             ),
             20.verticalSpace,
           ],

@@ -44,7 +44,8 @@ class NotificationItem extends StatelessWidget {
           child: Center(
             child: SvgPicture.asset(
               Constants.notificationsIcon,
-              color: Colors.white,
+              colorFilter:
+                  const ColorFilter.mode(Colors.white, BlendMode.srcIn),
             ),
           ),
         ),

@@ -103,7 +103,9 @@ class BaseView extends GetView<BaseController> {
         icon,
         theme: SvgTheme(currentColor: Get.theme.iconTheme.color!),
       ),
-      activeIcon: SvgPicture.asset(icon, color: Get.theme.primaryColor),
+      activeIcon: SvgPicture.asset(icon,
+          colorFilter:
+              ColorFilter.mode(Get.theme.primaryColor, BlendMode.srcIn)),
     );
   }
 }

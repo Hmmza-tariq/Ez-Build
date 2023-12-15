@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 // import '../../../../utils/dummy_helper.dart';
 import '../../../data/models/product_model.dart';
 import '../../base/controllers/base_controller.dart';
-import '../../Chat/controllers/chat_controller.dart';
 
 class ProductDetailsController extends GetxController {
   // get product details from arguments
