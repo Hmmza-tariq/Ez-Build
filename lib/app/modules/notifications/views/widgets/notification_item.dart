@@ -1,9 +1,11 @@
+import 'package:ez_build/config/constants/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
-import '../../../../../utils/constants.dart';
+import '../../../../../utils/assets.dart';
 
 class NotificationItem extends StatelessWidget {
   const NotificationItem({Key? key}) : super(key: key);
@@ -20,7 +22,7 @@ class NotificationItem extends StatelessWidget {
       ),
       child: ListTile(
         title: Text(
-          'New Notification received\nnew Message from user@Hexagone',
+          Provider.of<StringsManager>(context).notifications,
           style: theme.textTheme.displaySmall?.copyWith(
             fontWeight: FontWeight.normal,
           ),
@@ -28,7 +30,7 @@ class NotificationItem extends StatelessWidget {
         subtitle: Padding(
           padding: EdgeInsets.only(top: 5.h),
           child: Text(
-            '10/06/2022 AT 05:30 PM',
+            Provider.of<StringsManager>(context).notifications,
             style: theme.textTheme.bodyMedium?.copyWith(
               fontSize: 12.sp,
             ),
@@ -43,7 +45,7 @@ class NotificationItem extends StatelessWidget {
           ),
           child: Center(
             child: SvgPicture.asset(
-              Constants.notificationsIcon,
+              AssetsManager.notificationsIcon,
               colorFilter:
                   const ColorFilter.mode(Colors.white, BlendMode.srcIn),
             ),

@@ -1,10 +1,12 @@
 import 'package:ez_build/app/modules/add_item/views/add_item_view.dart';
+import 'package:ez_build/config/constants/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
-import '../../../../utils/constants.dart';
+import '../../../../utils/assets.dart';
 import '../controllers/base_controller.dart';
 import '../../Chat/views/chat_view.dart';
 import '../../favorites/views/favorites_view.dart';
@@ -64,28 +66,28 @@ class BaseView extends GetView<BaseController> {
               selectedFontSize: 0.0,
               items: [
                 _mBottomNavItem(
-                  label: 'Home',
-                  icon: Constants.homeIcon,
+                  label: Provider.of<StringsManager>(context).home,
+                  icon: AssetsManager.homeIcon,
                 ),
                 _mBottomNavItem(
-                  label: 'Chat',
-                  icon: Constants.chatIcon,
+                  label: Provider.of<StringsManager>(context).chat,
+                  icon: AssetsManager.chatIcon,
                 ),
                 _mBottomNavItem(
-                  label: 'add',
-                  icon: Constants.addIcon,
+                  label: Provider.of<StringsManager>(context).add,
+                  icon: AssetsManager.addIcon,
                 ),
                 _mBottomNavItem(
-                  label: 'Favorites',
-                  icon: Constants.favoritesIcon,
+                  label: Provider.of<StringsManager>(context).favorites,
+                  icon: AssetsManager.favoritesIcon,
                 ),
                 // _mBottomNavItem(
                 //   label: 'Notifications',
                 //   icon: Constants.notificationsIcon,
                 // ),
                 _mBottomNavItem(
-                  label: 'Settings',
-                  icon: Constants.settingsIcon,
+                  label: Provider.of<StringsManager>(context).settings,
+                  icon: AssetsManager.settingsIcon,
                 ),
               ],
               onTap: controller.changeScreen,

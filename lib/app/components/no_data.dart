@@ -1,8 +1,10 @@
+import 'package:ez_build/config/constants/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
-import '../../utils/constants.dart';
+import '../../utils/assets.dart';
 
 class NoData extends StatelessWidget {
   final String? text;
@@ -13,9 +15,11 @@ class NoData extends StatelessWidget {
     return Column(
       children: [
         80.verticalSpace,
-        Image.asset(Constants.noData),
+        Image.asset(AssetsManager.noData),
         20.verticalSpace,
-        Text(text ?? 'No Data', style: context.textTheme.displayMedium),
+        Text(text ?? Provider.of<StringsManager>(context).noData,
+            textAlign: TextAlign.center,
+            style: context.textTheme.displayMedium),
       ],
     );
   }

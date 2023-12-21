@@ -1,10 +1,12 @@
+import 'package:ez_build/config/constants/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
-import '../../../../../utils/constants.dart';
+import '../../../../../utils/assets.dart';
 import '../../controllers/settings_controller.dart';
 
 class SettingsItem extends StatelessWidget {
@@ -13,6 +15,7 @@ class SettingsItem extends StatelessWidget {
   final String icon;
   final bool isAccount;
   final bool isDark;
+  final bool isLanguage;
   final void Function()? onTap;
   const SettingsItem({
     Key? key,
@@ -20,6 +23,7 @@ class SettingsItem extends StatelessWidget {
     required this.icon,
     this.isAccount = false,
     this.isDark = false,
+    this.isLanguage = false,
     required this.description,
     this.onTap,
   }) : super(key: key);
@@ -53,16 +57,30 @@ class SettingsItem extends StatelessWidget {
                 activeColor: theme.primaryColor,
               ),
             )
-          : Container(
-              width: 40.w,
-              height: 40.h,
-              decoration: BoxDecoration(
-                color: theme.primaryColor,
-                borderRadius: BorderRadius.circular(10.r),
-              ),
-              child: SvgPicture.asset(Constants.forwardArrowIcon,
-                  fit: BoxFit.none),
-            ),
+          : isLanguage
+              ?
+              // ElevatedButton(
+              //     onPressed:
+              //         Provider.of<StringsManager>(context).toggleLanguage(),
+              //     child: const Text('Change Language'))
+              GetBuilder<SettingsController>(
+                  id: 'Language',
+                  builder: (controller) => CupertinoSwitch(
+                    value: !controller.isUrdu,
+                    onChanged: controller.changeLanguage,
+                    activeColor: theme.primaryColor,
+                  ),
+                )
+              : Container(
+                  width: 40.w,
+                  height: 40.h,
+                  decoration: BoxDecoration(
+                    color: theme.primaryColor,
+                    borderRadius: BorderRadius.circular(10.r),
+                  ),
+                  child: SvgPicture.asset(AssetsManager.forwardArrowIcon,
+                      fit: BoxFit.none),
+                ),
     );
   }
 }

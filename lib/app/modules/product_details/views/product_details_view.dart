@@ -1,13 +1,15 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:expandable_text/expandable_text.dart';
+import 'package:ez_build/config/constants/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
-import '../../../../utils/constants.dart';
+import '../../../../utils/assets.dart';
 import '../../../components/custom_button.dart';
 import '../controllers/product_details_controller.dart';
 import 'widgets/rounded_button.dart';
@@ -75,7 +77,7 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                       children: [
                         RoundedButton(
                           onPressed: () => Get.back(),
-                          child: SvgPicture.asset(Constants.backArrowIcon,
+                          child: SvgPicture.asset(AssetsManager.backArrowIcon,
                               fit: BoxFit.none),
                         ),
                         GetBuilder<ProductDetailsController>(
@@ -86,8 +88,8 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                             child: Align(
                               child: SvgPicture.asset(
                                 controller.product.isFavorite
-                                    ? Constants.favFilledIcon
-                                    : Constants.favOutlinedIcon,
+                                    ? AssetsManager.favFilledIcon
+                                    : AssetsManager.favOutlinedIcon,
                                 width: 16.w,
                                 height: 15.h,
                                 colorFilter: controller.product.isFavorite
@@ -155,7 +157,7 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                   Padding(
                     padding: EdgeInsets.only(left: 20.w),
                     child: Text(
-                      'Quantity: ${controller.product.quantity}',
+                      '${Provider.of<StringsManager>(context).quantity}: ${controller.product.quantity}',
                       overflow: TextOverflow.ellipsis,
                       style: theme.textTheme.bodyMedium?.copyWith(
                           fontSize: 14.sp, fontWeight: FontWeight.w500),
@@ -168,7 +170,7 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                   Padding(
                     padding: EdgeInsets.only(right: 20.w),
                     child: Text(
-                      'Category: ${controller.product.category}',
+                      '${Provider.of<StringsManager>(context).category}: ${controller.product.category}',
                       overflow: TextOverflow.ellipsis,
                       style: theme.textTheme.bodyMedium?.copyWith(
                           fontSize: 14.sp, fontWeight: FontWeight.w500),
@@ -189,9 +191,9 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: ExpandableText(
-                  'Description: ${controller.product.description}',
-                  expandText: 'read more',
-                  collapseText: 'show less',
+                  '${Provider.of<StringsManager>(context).description}: ${controller.product.description}',
+                  expandText: Provider.of<StringsManager>(context).readMore,
+                  collapseText: Provider.of<StringsManager>(context).showLess,
                   maxLines: 3,
                   style: theme.textTheme.bodyMedium
                       ?.copyWith(fontSize: 14.sp, fontWeight: FontWeight.w500),
@@ -242,7 +244,7 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30.w),
                 child: CustomButton(
-                  text: 'Contact Seller',
+                  text: Provider.of<StringsManager>(context).contactSeller,
                   onPressed: () => controller.onAddToChatPressed(),
                   // disabled: controller.product.quantity! > 0,
                   fontSize: 16.sp,

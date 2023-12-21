@@ -1,16 +1,13 @@
 import 'package:ez_build/app/routes/app_pages.dart';
-import 'package:ez_build/utils/constants.dart';
+import 'package:ez_build/config/constants/strings.dart';
+import 'package:ez_build/utils/assets.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-
-const users = {
-  'hamza@gmail.com': '12345',
-  'hunter@gmail.com': 'hunter',
-};
+import 'package:provider/provider.dart';
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
@@ -70,14 +67,13 @@ class AuthScreen extends StatelessWidget {
     return 'Error';
   }
 
-  Future<String?> _recoverPassword(String name) async {
-    FirebaseAuth.instance.sendPasswordResetEmail(email: name).then((_) {
-      if (!users.containsKey(name)) {
-        return 'User not exists';
-      }
+  Future<String?> _recoverPassword(String email) async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
       return null;
-    });
-    return 'Error';
+    } on FirebaseAuthException catch (e) {
+      return _getError(e.message!);
+    }
   }
 
   String _getError(String error) {
@@ -106,8 +102,8 @@ class AuthScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlutterLogin(
-      title: 'Ez-Build',
-      logo: const AssetImage(Constants.logo),
+      title: Provider.of<StringsManager>(context).appName,
+      logo: const AssetImage(AssetsManager.logo),
       onLogin: _authUser,
       onSignup: _signupUser,
       loginProviders: <LoginProvider>[

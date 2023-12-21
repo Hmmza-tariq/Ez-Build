@@ -1,9 +1,11 @@
+import 'package:ez_build/config/constants/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
-import '../../../../utils/constants.dart';
+import '../../../../utils/assets.dart';
 import '../controllers/splash_controller.dart';
 
 class SplashView extends GetView<SplashController> {
@@ -20,33 +22,24 @@ class SplashView extends GetView<SplashController> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                Constants.logo,
-                width: 120.w,
-                height: 90.h,
+                AssetsManager.logo,
+                width: 200.w,
+                height: 200.h,
               ).animate().fade().slideY(
                   duration: const Duration(milliseconds: 500),
                   begin: 1,
                   curve: Curves.easeInSine),
               20.verticalSpace,
-              Padding(
-                padding: EdgeInsets.only(left: 30.w),
-                child: Text.rich(
-                  TextSpan(children: [
-                    TextSpan(
-                      text: 'Ez ',
-                      style: theme.textTheme.displayMedium
-                          ?.copyWith(color: theme.primaryColor),
-                    ),
-                    TextSpan(
-                      text: 'Build ',
-                      style: theme.textTheme.displayMedium,
-                    ),
-                  ]),
-                ).animate().fade().slideY(
-                    duration: const Duration(milliseconds: 500),
-                    begin: 5,
-                    curve: Curves.easeInSine),
-              ),
+              Text(
+                Provider.of<StringsManager>(context).appName,
+                style: theme.textTheme.headlineLarge?.copyWith(
+                    color: theme.primaryColor,
+                    fontSize: 30.sp,
+                    fontWeight: FontWeight.bold),
+              ).animate().fade().slideY(
+                  duration: const Duration(milliseconds: 500),
+                  begin: 5,
+                  curve: Curves.easeInSine),
             ],
           ),
         ),

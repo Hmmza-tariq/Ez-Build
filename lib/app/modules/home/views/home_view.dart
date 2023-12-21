@@ -1,8 +1,10 @@
 import 'package:ez_build/app/routes/app_pages.dart';
+import 'package:ez_build/config/constants/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import '../../../components/product_item.dart';
 import '../../../components/screen_title.dart';
 import '../controllers/home_controller.dart';
@@ -17,17 +19,17 @@ class HomeView extends GetView<HomeController> {
         backgroundColor: Theme.of(context).primaryColor,
         title: Row(
           children: [
-            const Row(
+            Row(
               children: [
-                Icon(Icons.location_on),
-                Text('Location'),
+                const Icon(Icons.location_on),
+                Text(Provider.of<StringsManager>(context).location),
               ],
             ),
             const SizedBox(width: 10),
             Expanded(
               child: TextField(
                 decoration: InputDecoration(
-                  hintText: 'Search',
+                  hintText: Provider.of<StringsManager>(context).search,
                   filled: true,
                   fillColor: Colors.white,
                   border: OutlineInputBorder(
@@ -54,8 +56,8 @@ class HomeView extends GetView<HomeController> {
         child: ListView(
           children: [
             30.verticalSpace,
-            const ScreenTitle(
-              title: 'Home',
+            ScreenTitle(
+              title: Provider.of<StringsManager>(context).home,
             ),
             20.verticalSpace,
             GridView.builder(

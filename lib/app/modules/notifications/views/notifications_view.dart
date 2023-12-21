@@ -1,8 +1,10 @@
+import 'package:ez_build/config/constants/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
 import '../../../components/screen_title.dart';
 import '../controllers/notifications_controller.dart';
@@ -19,8 +21,8 @@ class NotificationsView extends GetView<NotificationsController> {
         child: ListView(
           children: [
             30.verticalSpace,
-            const ScreenTitle(
-              title: 'Notifications',
+            ScreenTitle(
+              title: Provider.of<StringsManager>(context).notifications,
               dividerEndIndent: 150,
             ),
             10.verticalSpace,

@@ -1,4 +1,4 @@
-class Constants {
+class AssetsManager {
   // assets images
   static const logo = 'assets/images/app_icon.png';
 
@@ -12,10 +12,6 @@ class Constants {
   static const favFilledIcon = 'assets/vectors/fav_filled.svg';
   static const favOutlinedIcon = 'assets/vectors/fav_outlined.svg';
   static const backArrowIcon = 'assets/vectors/back_arrow.svg';
-  static const busIcon = 'assets/vectors/bus.svg';
-  static const increaseIcon = 'assets/vectors/increase.svg';
-  static const decreaseIcon = 'assets/vectors/decrease.svg';
-  static const cancelIcon = 'assets/vectors/cancel.svg';
   static const forwardArrowIcon = 'assets/vectors/forward_arrow.svg';
   static const userIcon = 'assets/vectors/user.svg';
   static const themeIcon = 'assets/vectors/theme.svg';

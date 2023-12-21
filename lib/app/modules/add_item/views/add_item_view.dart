@@ -1,6 +1,8 @@
+import 'package:ez_build/config/constants/strings.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
 import '../controllers/add_item_controller.dart';
 
@@ -9,6 +11,8 @@ class AddItemView extends GetView<AddItemController> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: Center(child: Text('Add Item View')));
+    return Scaffold(
+        body:
+            Center(child: Text(Provider.of<StringsManager>(context).addItem)));
   }
 }

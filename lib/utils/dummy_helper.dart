@@ -1,5 +1,5 @@
 import '../app/data/models/product_model.dart';
-import 'constants.dart';
+import 'assets.dart';
 
 class DummyHelper {
   const DummyHelper._();
@@ -7,7 +7,11 @@ class DummyHelper {
   static List<ProductModel> products = [
     ProductModel(
       id: 1,
-      images: [Constants.product1, Constants.product1, Constants.product1],
+      images: [
+        AssetsManager.product1,
+        AssetsManager.product1,
+        AssetsManager.product1
+      ],
       title: 'Item #1',
       description:
           'This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. ',
@@ -19,7 +23,11 @@ class DummyHelper {
     ),
     ProductModel(
       id: 2,
-      images: [Constants.product2, Constants.product2, Constants.product2],
+      images: [
+        AssetsManager.product2,
+        AssetsManager.product2,
+        AssetsManager.product2
+      ],
       title: 'Item #2',
       description:
           'This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. ',
@@ -31,7 +39,11 @@ class DummyHelper {
     ),
     ProductModel(
       id: 3,
-      images: [Constants.product3, Constants.product3, Constants.product3],
+      images: [
+        AssetsManager.product3,
+        AssetsManager.product3,
+        AssetsManager.product3
+      ],
       title: 'Item #3',
       description:
           'This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. ',
@@ -43,7 +55,11 @@ class DummyHelper {
     ),
     ProductModel(
       id: 4,
-      images: [Constants.product4, Constants.product4, Constants.product4],
+      images: [
+        AssetsManager.product4,
+        AssetsManager.product4,
+        AssetsManager.product4
+      ],
       title: 'Item #4',
       description:
           'This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. ',
@@ -55,7 +71,11 @@ class DummyHelper {
     ),
     ProductModel(
       id: 5,
-      images: [Constants.product5, Constants.product5, Constants.product5],
+      images: [
+        AssetsManager.product5,
+        AssetsManager.product5,
+        AssetsManager.product5
+      ],
       title: 'Item #5',
       description:
           'This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. ',
@@ -67,7 +87,11 @@ class DummyHelper {
     ),
     ProductModel(
       id: 6,
-      images: [Constants.product6, Constants.product6, Constants.product6],
+      images: [
+        AssetsManager.product6,
+        AssetsManager.product6,
+        AssetsManager.product6
+      ],
       title: 'Item #6',
       description:
           'This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. ',

@@ -1,7 +1,9 @@
+import 'package:ez_build/config/constants/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
 import '../../../components/no_data.dart';
 import '../../../components/product_item.dart';
@@ -19,14 +21,16 @@ class FavoritesView extends GetView<FavoritesController> {
         child: ListView(
           children: [
             30.verticalSpace,
-            const ScreenTitle(
-              title: 'Favorites',
+            ScreenTitle(
+              title: Provider.of<StringsManager>(context).favorites,
               dividerEndIndent: 200,
             ),
             20.verticalSpace,
             GetBuilder<FavoritesController>(
               builder: (_) => controller.products.isEmpty
-                  ? const NoData(text: 'No Products in Favorite Yet!')
+                  ? NoData(
+                      text: Provider.of<StringsManager>(context)
+                          .noItemInFavourite)
                   : GridView.builder(
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,

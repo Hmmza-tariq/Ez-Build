@@ -1,10 +1,12 @@
+import 'package:ez_build/config/constants/strings.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
-import '../../../../utils/constants.dart';
+import '../../../../utils/assets.dart';
 import '../../../components/screen_title.dart';
 import '../controllers/settings_controller.dart';
 import 'widgets/settings_item.dart';
@@ -21,52 +23,54 @@ class SettingsView extends GetView<SettingsController> {
         child: ListView(
           children: [
             30.verticalSpace,
-            const ScreenTitle(
-              title: 'Settings',
+            ScreenTitle(
+              title: Provider.of<StringsManager>(context).settings,
               dividerEndIndent: 230,
             ),
             20.verticalSpace,
-            Text('Account',
+            Text(Provider.of<StringsManager>(context).account,
                 style: theme.textTheme.displayMedium?.copyWith(
                   fontSize: 20.sp,
                   fontWeight: FontWeight.normal,
                 )),
             20.verticalSpace,
-            const SettingsItem(
-              title: 'Hexagone',
-              icon: Constants.userIcon,
+            SettingsItem(
+              title: Provider.of<StringsManager>(context).profileName,
+              icon: AssetsManager.userIcon,
               isAccount: true,
-              description: '+92 300 1234567',
+              description: Provider.of<StringsManager>(context).phoneNumber,
             ),
             30.verticalSpace,
-            Text('Settings',
+            Text(Provider.of<StringsManager>(context).settings,
                 style: theme.textTheme.displayMedium?.copyWith(
                   fontSize: 20.sp,
                   fontWeight: FontWeight.normal,
                 )),
             20.verticalSpace,
-            const SettingsItem(
-              title: 'Dark Mode',
-              icon: Constants.themeIcon,
+            SettingsItem(
+              title: Provider.of<StringsManager>(context).darkMode,
+              icon: AssetsManager.themeIcon,
               isDark: true,
               description: '',
             ),
             25.verticalSpace,
-            const SettingsItem(
-              title: 'Language',
-              icon: Constants.languageIcon,
-              description: '',
-            ),
-            25.verticalSpace,
-            const SettingsItem(
-              title: 'Help',
-              icon: Constants.helpIcon,
+            SettingsItem(
+              title:
+                  '${Provider.of<StringsManager>(context).language} - ${Provider.of<StringsManager>(context).currentLanguage}',
+              icon: AssetsManager.languageIcon,
+              isLanguage: true,
               description: '',
             ),
             25.verticalSpace,
             SettingsItem(
-              title: 'Sign Out',
-              icon: Constants.logoutIcon,
+              title: Provider.of<StringsManager>(context).help,
+              icon: AssetsManager.helpIcon,
+              description: '',
+            ),
+            25.verticalSpace,
+            SettingsItem(
+              title: Provider.of<StringsManager>(context).logout,
+              icon: AssetsManager.logoutIcon,
               description: '',
               onTap: () => FirebaseAuth.instance.signOut(),
             ),
