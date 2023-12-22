@@ -1,4 +1,4 @@
-import 'package:ez_build/config/constants/strings.dart';
+import 'package:ez_build/config/provider/strings.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 

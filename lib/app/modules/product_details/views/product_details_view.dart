@@ -1,6 +1,6 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:expandable_text/expandable_text.dart';
-import 'package:ez_build/config/constants/strings.dart';
+import 'package:ez_build/config/provider/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

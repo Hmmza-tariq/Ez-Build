@@ -7,11 +7,11 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 import '../../../components/screen_title.dart';
-import '../controllers/notifications_controller.dart';
+import '../controllers/search_controller.dart';
 import 'widgets/notification_item.dart';
 
-class NotificationsView extends GetView<NotificationsController> {
-  const NotificationsView({Key? key}) : super(key: key);
+class SearchView extends GetView<SearchesController> {
+  const SearchView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class NotificationsView extends GetView<NotificationsController> {
             ListView.builder(
               itemCount: 5,
               itemBuilder: (context, index) =>
-                  const NotificationItem().animate().fade().slideY(
+                  const SearchItem().animate().fade().slideY(
                         duration: const Duration(milliseconds: 300),
                         begin: 1,
                         curve: Curves.easeInSine,

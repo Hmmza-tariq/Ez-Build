@@ -1,5 +1,5 @@
 import 'package:ez_build/app/routes/app_pages.dart';
-import 'package:ez_build/config/constants/strings.dart';
+import 'package:ez_build/config/provider/strings.dart';
 import 'package:ez_build/utils/assets.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

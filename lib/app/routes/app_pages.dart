@@ -1,5 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
+import 'package:ez_build/app/modules/search/bindings/search_binding.dart';
+import 'package:ez_build/app/modules/search/views/search_view.dart';
 import 'package:get/get.dart';
 
 import 'package:ez_build/app/modules/auth/binding/auth_binding.dart';
@@ -63,6 +65,11 @@ class AppPages {
       name: _Paths.NOTIFICATIONS,
       page: () => const NotificationsView(),
       binding: NotificationsBinding(),
+    ),
+    GetPage(
+      name: _Paths.SEARCH,
+      page: () => const SearchView(),
+      binding: SearchBinding(),
     ),
     GetPage(
       name: _Paths.SETTINGS,

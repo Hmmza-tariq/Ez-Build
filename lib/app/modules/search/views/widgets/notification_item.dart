@@ -7,8 +7,8 @@ import 'package:provider/provider.dart';
 
 import '../../../../../utils/assets.dart';
 
-class NotificationItem extends StatelessWidget {
-  const NotificationItem({Key? key}) : super(key: key);
+class SearchItem extends StatelessWidget {
+  const SearchItem({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

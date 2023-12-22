@@ -12,6 +12,7 @@ abstract class Routes {
   static const FAVORITES = _Paths.FAVORITES;
   static const Chat = _Paths.Chat;
   static const NOTIFICATIONS = _Paths.NOTIFICATIONS;
+  static const SEARCH = _Paths.SEARCH;
   static const SETTINGS = _Paths.SETTINGS;
   static const PRODUCT_DETAILS = _Paths.PRODUCT_DETAILS;
 }
@@ -25,6 +26,7 @@ abstract class _Paths {
   static const FAVORITES = '/favorites';
   static const Chat = '/Chat';
   static const NOTIFICATIONS = '/notifications';
+  static const SEARCH = '/search';
   static const SETTINGS = '/settings';
   static const PRODUCT_DETAILS = '/product-details';
 }
