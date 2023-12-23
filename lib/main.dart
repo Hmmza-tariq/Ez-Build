@@ -17,7 +17,7 @@ Future main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider<StringsManager>(
-          create: (_) => StringsManager(),
+          create: (_) => StringsManager(MySharedPref.getIsUrdu()),
         ),
       ],
       child: ScreenUtilInit(
@@ -33,8 +33,7 @@ Future main() async {
             debugShowCheckedModeBanner: false,
             builder: (context, widget) {
               bool themeIsLight = MySharedPref.getThemeIsLight();
-              Provider.of<StringsManager>(context)
-                  .setLanguage(MySharedPref.getIsUrdu());
+
               return Theme(
                 data: MyTheme.getThemeData(isLight: themeIsLight),
                 child: MediaQuery(

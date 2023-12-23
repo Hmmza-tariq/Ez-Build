@@ -1,5 +1,9 @@
 // ignore_for_file: constant_identifier_names
 
+import 'package:ez_build/app/modules/auth/view/widgets/phone_binding.dart';
+import 'package:ez_build/app/modules/auth/view/widgets/phone_screen.dart';
+import 'package:ez_build/app/modules/location/bindings/location_binding.dart';
+import 'package:ez_build/app/modules/location/views/location_view.dart';
 import 'package:ez_build/app/modules/search/bindings/search_binding.dart';
 import 'package:ez_build/app/modules/search/views/search_view.dart';
 import 'package:get/get.dart';
@@ -42,6 +46,11 @@ class AppPages {
       binding: AuthBinding(),
     ),
     GetPage(
+      name: _Paths.PHONE,
+      page: () => const PhoneScreen(),
+      binding: PhoneBinding(),
+    ),
+    GetPage(
       name: _Paths.BASE,
       page: () => const BaseView(),
       binding: BaseBinding(),
@@ -70,6 +79,11 @@ class AppPages {
       name: _Paths.SEARCH,
       page: () => const SearchView(),
       binding: SearchBinding(),
+    ),
+    GetPage(
+      name: _Paths.LOCATION,
+      page: () => const LocationView(),
+      binding: LocationBinding(),
     ),
     GetPage(
       name: _Paths.SETTINGS,

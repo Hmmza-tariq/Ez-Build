@@ -31,6 +31,10 @@ class StringsManager with ChangeNotifier {
   static String _noData = 'No Data';
   static const String _english = 'English';
   static const String _urdu = 'اردو';
+
+  StringsManager(bool isUrdu) {
+    setLanguage(isUrdu);
+  }
   void setLanguage(bool isUrdu) {
     _isUrdu = isUrdu;
     setValues(isUrdu);

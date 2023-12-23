@@ -19,11 +19,16 @@ class HomeView extends GetView<HomeController> {
         backgroundColor: Theme.of(context).primaryColor,
         title: Row(
           children: [
-            Row(
-              children: [
-                const Icon(Icons.location_on),
-                Text(Provider.of<StringsManager>(context).location),
-              ],
+            GestureDetector(
+              onTap: () {
+                Get.toNamed(Routes.LOCATION);
+              },
+              child: Row(
+                children: [
+                  const Icon(Icons.location_on),
+                  Text(Provider.of<StringsManager>(context).location),
+                ],
+              ),
             ),
             const SizedBox(width: 10),
             Expanded(
