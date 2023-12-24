@@ -17,7 +17,8 @@ Future main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider<StringsManager>(
-          create: (_) => StringsManager(MySharedPref.getIsUrdu()),
+          create: (_) => StringsManager(MySharedPref.getIsUrdu(),
+              location: MySharedPref.getLocation()),
         ),
       ],
       child: ScreenUtilInit(

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>193131146217-1258734rcr60312sj9bqm61qgbjtfs8m.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.193131146217-1258734rcr60312sj9bqm61qgbjtfs8m</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>193131146217-jjao4kmvsib2h6jbgg6va9duufr22ips.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAZMfA_EWccicuPsjvoOWNN2cKQuw9MSeo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>193131146217</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.hexagone.ezbuild</string>
+	<key>PROJECT_ID</key>
+	<string>ez-build-hexagone</string>
+	<key>STORAGE_BUCKET</key>
+	<string>ez-build-hexagone.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:193131146217:ios:3895c7f3ea03ce3420b978</string>
+</dict>
+</plist>
+<!-- TODO: Add REVERSED_CLIENT_ID to X-code -->

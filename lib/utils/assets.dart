@@ -18,6 +18,8 @@ class AssetsManager {
   static const languageIcon = 'assets/vectors/language.svg';
   static const helpIcon = 'assets/vectors/help.svg';
   static const logoutIcon = 'assets/vectors/logout.svg';
+  static const location = 'assets/vectors/location.svg';
+  static const locationPin = 'assets/vectors/location_pin.svg';
 
   static const product1 = 'assets/images/product (1).jpg';
   static const product2 = 'assets/images/product (2).jpg';

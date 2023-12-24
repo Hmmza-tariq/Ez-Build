@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-package= "com.hexagone.ez_build">
+package= "com.hexagone.ezbuild">
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application

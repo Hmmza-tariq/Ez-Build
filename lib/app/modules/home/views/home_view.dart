@@ -24,9 +24,21 @@ class HomeView extends GetView<HomeController> {
                 Get.toNamed(Routes.LOCATION);
               },
               child: Row(
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Icon(Icons.location_on),
-                  Text(Provider.of<StringsManager>(context).location),
+                  Icon(
+                    Icons.location_on,
+                    color: context.theme.iconTheme.color,
+                  ),
+                  SizedBox(
+                    width: 100.w,
+                    child: Text(
+                      Provider.of<StringsManager>(context).location,
+                      style: context.theme.textTheme.bodyMedium,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
                 ],
               ),
             ),

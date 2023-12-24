@@ -1,4 +1,4 @@
-package com.hexagone.ez_build
+package com.hexagone.ezbuild
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,26 +1,44 @@
 {
   "project_info": {
-    "project_number": "137010540800",
-    "project_id": "ez-build-d3411",
-    "storage_bucket": "ez-build-d3411.appspot.com"
+    "project_number": "193131146217",
+    "project_id": "ez-build-hexagone",
+    "storage_bucket": "ez-build-hexagone.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:137010540800:android:76e90f784afa561765c3e5",
+        "mobilesdk_app_id": "1:193131146217:android:e201fbeec1c3c30420b978",
         "android_client_info": {
-          "package_name": "com.hexagone.ez_build"
+          "package_name": "com.hexagone.ezbuild"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "193131146217-jjao4kmvsib2h6jbgg6va9duufr22ips.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hexagone.ezbuild",
+            "certificate_hash": "fc93b27cf424696af246333eaf9a942a8a85b1f5"
+          }
+        },
+        {
+          "client_id": "193131146217-svrcij3u0tnbo478dkiogkb08719t5cp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyChjF02HNcCflOS4z2UtF2wu7LgTt7u5L4"
+          "current_key": "AIzaSyCIv0KHSQqBU3-cJYjS96CWQ-92mMN9dG8"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "193131146217-svrcij3u0tnbo478dkiogkb08719t5cp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

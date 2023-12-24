@@ -1,200 +1,98 @@
+import 'package:ez_build/app/data/local/my_shared_pref.dart';
+import 'package:ez_build/app/modules/location/controllers/location_controller.dart';
+import 'package:ez_build/app/modules/location/views/widgets/location_tile.dart';
+import 'package:ez_build/config/provider/strings.dart';
+import 'package:ez_build/utils/assets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
-class LocationView extends StatefulWidget {
-  const LocationView({super.key});
-
-  @override
-  LocationViewState createState() => LocationViewState();
-}
-
-class LocationViewState extends State<LocationView> {
-  // final _startSearchFieldController = TextEditingController();
-  // final _endSearchFieldController = TextEditingController();
-
-  // DetailsResult? startPosition;
-  // DetailsResult? endPosition;
-
-  // late FocusNode startFocusNode;
-  // late FocusNode endFocusNode;
-
-  // late GooglePlace googlePlace;
-  // List<AutocompletePrediction> predictions = [];
-  // Timer? _debounce;
-
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //   String apiKey = 'AIzaSyAeq_m6Xus_Isb8jtVQ7TbZP9Q2hV4shR0';
-  //   googlePlace = GooglePlace(apiKey);
-
-  //   startFocusNode = FocusNode();
-  //   endFocusNode = FocusNode();
-  // }
-
-  // @override
-  // void dispose() {
-  //   // TODO: implement dispose
-  //   super.dispose();
-  //   startFocusNode.dispose();
-  //   endFocusNode.dispose();
-  // }
-
-  // void autoCompleteSearch(String value) async {
-  //   var result = await googlePlace.autocomplete.get(value);
-  //   if (result != null && result.predictions != null && mounted) {
-  //     print(result.predictions!.first.description);
-  //     setState(() {
-  //       predictions = result.predictions!;
-  //     });
-  //   }
-  // }
+class LocationView extends GetView<LocationController> {
+  const LocationView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        //   appBar: AppBar(
-        //     backgroundColor: Colors.white,
-        //     leading: const BackButton(color: Colors.black),
-        //     elevation: 0,
-        //   ),
-        //   body: Padding(
-        //     padding: const EdgeInsets.all(8.0),
-        //     child: Column(
-        //       children: [
-        //         TextField(
-        //           controller: _startSearchFieldController,
-        //           autofocus: false,
-        //           focusNode: startFocusNode,
-        //           style: TextStyle(fontSize: 24),
-        //           decoration: InputDecoration(
-        //               hintText: 'Starting Point',
-        //               hintStyle: const TextStyle(
-        //                   fontWeight: FontWeight.w500, fontSize: 24),
-        //               filled: true,
-        //               fillColor: Colors.grey[200],
-        //               border: InputBorder.none,
-        //               suffixIcon: _startSearchFieldController.text.isNotEmpty
-        //                   ? IconButton(
-        //                       onPressed: () {
-        //                         setState(() {
-        //                           predictions = [];
-        //                           _startSearchFieldController.clear();
-        //                         });
-        //                       },
-        //                       icon: Icon(Icons.clear_outlined),
-        //                     )
-        //                   : null),
-        //           onChanged: (value) {
-        //             if (_debounce?.isActive ?? false) _debounce!.cancel();
-        //             _debounce = Timer(const Duration(milliseconds: 1000), () {
-        //               if (value.isNotEmpty) {
-        //                 //places api
-        //                 autoCompleteSearch(value);
-        //               } else {
-        //                 //clear out the results
-        //                 setState(() {
-        //                   predictions = [];
-        //                   startPosition = null;
-        //                 });
-        //               }
-        //             });
-        //           },
-        //         ),
-        //         SizedBox(height: 10),
-        //         TextField(
-        //           controller: _endSearchFieldController,
-        //           autofocus: false,
-        //           focusNode: endFocusNode,
-        //           enabled: _startSearchFieldController.text.isNotEmpty &&
-        //               startPosition != null,
-        //           style: TextStyle(fontSize: 24),
-        //           decoration: InputDecoration(
-        //               hintText: 'End Point',
-        //               hintStyle: const TextStyle(
-        //                   fontWeight: FontWeight.w500, fontSize: 24),
-        //               filled: true,
-        //               fillColor: Colors.grey[200],
-        //               border: InputBorder.none,
-        //               suffixIcon: _endSearchFieldController.text.isNotEmpty
-        //                   ? IconButton(
-        //                       onPressed: () {
-        //                         setState(() {
-        //                           predictions = [];
-        //                           _endSearchFieldController.clear();
-        //                         });
-        //                       },
-        //                       icon: Icon(Icons.clear_outlined),
-        //                     )
-        //                   : null),
-        //           onChanged: (value) {
-        //             if (_debounce?.isActive ?? false) _debounce!.cancel();
-        //             _debounce = Timer(const Duration(milliseconds: 1000), () {
-        //               if (value.isNotEmpty) {
-        //                 //places api
-        //                 autoCompleteSearch(value);
-        //               } else {
-        //                 //clear out the results
-        //                 setState(() {
-        //                   predictions = [];
-        //                   endPosition = null;
-        //                 });
-        //               }
-        //             });
-        //           },
-        //         ),
-        //         ListView.builder(
-        //             shrinkWrap: true,
-        //             itemCount: predictions.length,
-        //             itemBuilder: (context, index) {
-        //               return ListTile(
-        //                 leading: CircleAvatar(
-        //                   child: Icon(
-        //                     Icons.pin_drop,
-        //                     color: Colors.white,
-        //                   ),
-        //                 ),
-        //                 title: Text(
-        //                   predictions[index].description.toString(),
-        //                 ),
-        //                 onTap: () async {
-        //                   final placeId = predictions[index].placeId!;
-        //                   final details = await googlePlace.details.get(placeId);
-        //                   if (details != null &&
-        //                       details.result != null &&
-        //                       mounted) {
-        //                     if (startFocusNode.hasFocus) {
-        //                       setState(() {
-        //                         startPosition = details.result;
-        //                         _startSearchFieldController.text =
-        //                             details.result!.name!;
-        //                         predictions = [];
-        //                       });
-        //                     } else {
-        //                       setState(() {
-        //                         endPosition = details.result;
-        //                         _endSearchFieldController.text =
-        //                             details.result!.name!;
-        //                         predictions = [];
-        //                       });
-        //                     }
-
-        //                     if (startPosition != null && endPosition != null) {
-        //                       print('navigate');
-        //                       // Navigator.push(
-        //                       //   context,
-        //                       //   MaterialPageRoute(
-        //                       //     builder: (context) => MapScreen(),
-        //                       //   ),
-        //                       // );
-        //                     }
-        //                   }
-        //                 },
-        //               );
-        //             })
-        //       ],
-        //     ),
-        //   ),
+    return GetBuilder<LocationController>(
+      init: LocationController(),
+      id: 'Location',
+      builder: (_) {
+        return Scaffold(
+          appBar: AppBar(
+            actions: [
+              Padding(
+                padding: const EdgeInsets.only(right: 16.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    // controller.placeAutoComplete('Pakistan');
+                  },
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0,
+                    fixedSize: const Size(double.infinity, 40),
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      SvgPicture.asset(
+                        AssetsManager.location,
+                        height: 16,
+                      ),
+                      Text("My Location",
+                          style: context.theme.textTheme.displaySmall),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+          body: Column(
+            children: [
+              Form(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: TextFormField(
+                    onChanged: (value) {
+                      controller.placeAutoComplete(value);
+                    },
+                    textInputAction: TextInputAction.search,
+                    decoration: InputDecoration(
+                      hintText: "Search your location",
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        child: SvgPicture.asset(AssetsManager.locationPin),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const Divider(
+                height: 4,
+                thickness: 4,
+                // color: secondaryColor5LightTheme,
+              ),
+              Expanded(
+                child: ListView.builder(
+                    itemCount: controller.predictions.length,
+                    itemBuilder: (context, index) {
+                      return LocationListTile(
+                        press: () {
+                          String location =
+                              controller.predictions[index].description!;
+                          Provider.of<StringsManager>(context, listen: false)
+                              .setLocation(location);
+                          MySharedPref.setLocation(location);
+                          Get.back();
+                        },
+                        location: controller.predictions[index].description!,
+                      );
+                    }),
+              ),
+            ],
+          ),
         );
+      },
+    );
   }
 }
