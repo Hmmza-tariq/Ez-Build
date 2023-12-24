@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geocoding/geocoding.dart';
 import 'package:http/http.dart' as http;
 
 class NetworkUtils {
@@ -12,5 +13,18 @@ class NetworkUtils {
       debugPrint(e.toString());
     }
     return null;
+  }
+
+  Future<String> getAddressFromLatLng(String latitude, String longitude) async {
+    try {
+      double lat = double.parse(latitude);
+      double lng = double.parse(longitude);
+      List<Placemark> placemarks = await placemarkFromCoordinates(lat, lng);
+      Placemark place = placemarks[0];
+      return "${place.street}, ${place.locality}";
+    } catch (e) {
+      debugPrint(e.toString());
+      return "Failed to get address";
+    }
   }
 }

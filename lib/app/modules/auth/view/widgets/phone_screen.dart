@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class PhoneScreen extends GetView<PhoneController> {
-  const PhoneScreen({Key? key}) : super(key: key);
+  const PhoneScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

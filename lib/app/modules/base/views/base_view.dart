@@ -14,7 +14,7 @@ import '../../home/views/home_view.dart';
 import '../../settings/views/settings_view.dart';
 
 class BaseView extends GetView<BaseController> {
-  const BaseView({Key? key}) : super(key: key);
+  const BaseView({super.key});
 
   @override
   Widget build(BuildContext context) {

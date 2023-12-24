@@ -16,7 +16,7 @@ class SettingsItem extends StatelessWidget {
   final bool isLanguage;
   final void Function()? onTap;
   const SettingsItem({
-    Key? key,
+    super.key,
     required this.title,
     required this.icon,
     this.isAccount = false,
@@ -24,7 +24,7 @@ class SettingsItem extends StatelessWidget {
     this.isLanguage = false,
     required this.description,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

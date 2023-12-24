@@ -31,6 +31,9 @@ class StringsManager with ChangeNotifier {
   static String _noData = 'No Data';
   static const String _english = 'English';
   static const String _urdu = 'اردو';
+  static String _myLocation = "My Location ";
+  static String _searchLocation = "Search your location";
+  static String _chooseLocation = "Choose Location";
 
   StringsManager(bool isUrdu, {String? location}) {
     setLanguage(isUrdu);
@@ -85,6 +88,9 @@ class StringsManager with ChangeNotifier {
     _help = isUrdu ? 'مدد' : 'Help';
     _logout = isUrdu ? 'لاگ آؤٹ' : 'Logout';
     _noData = isUrdu ? 'کوئی ڈیٹا نہیں' : 'No Data';
+    _myLocation = isUrdu ? "میری جگہ " : "My Location ";
+    _searchLocation = isUrdu ? "اپنی جگہ تلاش کریں" : "Search your location";
+    _chooseLocation = isUrdu ? "جگہ منتخب کریں" : "Choose Location";
   }
 
   bool get isUrdu => _isUrdu;
@@ -118,4 +124,7 @@ class StringsManager with ChangeNotifier {
   String get noData => _noData;
   String get english => _english;
   String get urdu => _urdu;
+  String get myLocation => _myLocation;
+  String get searchLocation => _searchLocation;
+  String get chooseLocation => _chooseLocation;
 }

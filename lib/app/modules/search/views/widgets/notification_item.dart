@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 import '../../../../../utils/assets.dart';
 
 class SearchItem extends StatelessWidget {
-  const SearchItem({Key? key}) : super(key: key);
+  const SearchItem({super.key});
 
   @override
   Widget build(BuildContext context) {

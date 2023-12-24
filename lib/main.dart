@@ -34,7 +34,6 @@ Future main() async {
             debugShowCheckedModeBanner: false,
             builder: (context, widget) {
               bool themeIsLight = MySharedPref.getThemeIsLight();
-
               return Theme(
                 data: MyTheme.getThemeData(isLight: themeIsLight),
                 child: MediaQuery(

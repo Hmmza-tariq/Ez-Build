@@ -5,11 +5,20 @@ import 'package:ez_build/config/provider/strings.dart';
 import 'package:ez_build/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 class LocationView extends GetView<LocationController> {
-  const LocationView({Key? key}) : super(key: key);
+  const LocationView({super.key});
+
+  void setLocation(String? location, context) {
+    if (location == null) {
+      return;
+    }
+    Provider.of<StringsManager>(context, listen: false).setLocation(location);
+    MySharedPref.setLocation(location);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,13 +27,22 @@ class LocationView extends GetView<LocationController> {
       id: 'Location',
       builder: (_) {
         return Scaffold(
+          backgroundColor: context.theme.colorScheme.background,
           appBar: AppBar(
+            backgroundColor: context.theme.colorScheme.background,
+            elevation: 1,
+            title: Text(
+              Provider.of<StringsManager>(context).chooseLocation,
+              style: context.theme.textTheme.headlineSmall,
+            ),
             actions: [
               Padding(
                 padding: const EdgeInsets.only(right: 16.0),
                 child: ElevatedButton(
-                  onPressed: () {
-                    // controller.placeAutoComplete('Pakistan');
+                  onPressed: () async {
+                    await controller
+                        .getCurrentLocation()
+                        .then((value) => setLocation(value, context));
                   },
                   style: ElevatedButton.styleFrom(
                     elevation: 0,
@@ -35,11 +53,14 @@ class LocationView extends GetView<LocationController> {
                   ),
                   child: Row(
                     children: [
-                      SvgPicture.asset(
-                        AssetsManager.location,
-                        height: 16,
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                        child: SvgPicture.asset(
+                          AssetsManager.location,
+                          height: 16,
+                        ),
                       ),
-                      Text("My Location",
+                      Text(Provider.of<StringsManager>(context).myLocation,
                           style: context.theme.textTheme.displaySmall),
                     ],
                   ),
@@ -53,15 +74,17 @@ class LocationView extends GetView<LocationController> {
                 child: Padding(
                   padding: const EdgeInsets.all(16),
                   child: TextFormField(
+                    controller: controller.locationController,
                     onChanged: (value) {
                       controller.placeAutoComplete(value);
                     },
                     textInputAction: TextInputAction.search,
                     decoration: InputDecoration(
-                      hintText: "Search your location",
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 12),
-                        child: SvgPicture.asset(AssetsManager.locationPin),
+                      hintText:
+                          Provider.of<StringsManager>(context).searchLocation,
+                      prefixIcon: const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 12),
+                        child: Icon(FontAwesomeIcons.magnifyingGlass),
                       ),
                     ),
                   ),
@@ -78,11 +101,9 @@ class LocationView extends GetView<LocationController> {
                     itemBuilder: (context, index) {
                       return LocationListTile(
                         press: () {
-                          String location =
-                              controller.predictions[index].description!;
-                          Provider.of<StringsManager>(context, listen: false)
-                              .setLocation(location);
-                          MySharedPref.setLocation(location);
+                          setLocation(controller.predictions[index].description,
+                              context);
+
                           Get.back();
                         },
                         location: controller.predictions[index].description!,
