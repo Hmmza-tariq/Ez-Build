@@ -21,7 +21,6 @@ class PhoneController extends GetxController {
   Future<String?> authUserWithPhone() async {
     final auth = FirebaseAuth.instance;
     try {
-      // Check if the phone number is correctly formatted
       if (phone == '' ||
           phone.isEmpty ||
           phone.length != 11 ||
