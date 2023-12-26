@@ -1,5 +1,6 @@
+import 'package:ez_build/app/components/product_item_edit.dart';
 import 'package:ez_build/app/routes/app_pages.dart';
-import 'package:ez_build/config/provider/strings.dart';
+import 'package:ez_build/config/provider/strings_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -7,7 +8,6 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 import '../../../components/no_data.dart';
-import '../../../components/product_item.dart';
 import '../../../components/screen_title.dart';
 import '../controllers/my_ads_controller.dart';
 
@@ -79,7 +79,7 @@ class MyAdsView extends GetView<MyAdsController> {
                       shrinkWrap: true,
                       primary: false,
                       itemCount: controller.products.length,
-                      itemBuilder: (context, index) => ProductItem(
+                      itemBuilder: (context, index) => ProductItemEdit(
                         product: controller.products[index],
                       ),
                     ),

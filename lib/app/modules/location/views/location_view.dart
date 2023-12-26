@@ -1,7 +1,7 @@
 import 'package:ez_build/app/data/local/my_shared_pref.dart';
 import 'package:ez_build/app/modules/location/controllers/location_controller.dart';
 import 'package:ez_build/app/modules/location/views/widgets/location_tile.dart';
-import 'package:ez_build/config/provider/strings.dart';
+import 'package:ez_build/config/provider/strings_manager.dart';
 import 'package:ez_build/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

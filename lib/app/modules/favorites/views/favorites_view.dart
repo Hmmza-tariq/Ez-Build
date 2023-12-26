@@ -1,4 +1,4 @@
-import 'package:ez_build/config/provider/strings.dart';
+import 'package:ez_build/config/provider/strings_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
