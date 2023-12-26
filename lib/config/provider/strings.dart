@@ -11,11 +11,13 @@ class StringsManager with ChangeNotifier {
   static String _chat = "Chat";
   static String _add = "Add";
   static String _favorites = "Favorites";
+  static String _myAds = "My Ads";
   static String _notifications = "Notifications";
   static String _settings = "Settings";
   static String _search = "Search";
   static String _addItem = 'Add Item View';
   static String _noItemInFavourite = 'No Products in Favorite Yet!';
+  static String _noItemInAds = 'No Products in listed!';
   static String _quantity = 'Quantity';
   static String _price = 'Price';
   static String _category = 'Category';
@@ -91,6 +93,10 @@ class StringsManager with ChangeNotifier {
     _myLocation = isUrdu ? "میری جگہ " : "My Location ";
     _searchLocation = isUrdu ? "اپنی جگہ تلاش کریں" : "Search your location";
     _chooseLocation = isUrdu ? "جگہ منتخب کریں" : "Choose Location";
+    _myAds = isUrdu ? "میرے اشتہارات" : "My Ads";
+    _noItemInAds = isUrdu
+        ? "فی الحال کوئی مصنوعات درج نہیں ہیں!"
+        : "No Products in listed!";
   }
 
   bool get isUrdu => _isUrdu;
@@ -127,4 +133,6 @@ class StringsManager with ChangeNotifier {
   String get myLocation => _myLocation;
   String get searchLocation => _searchLocation;
   String get chooseLocation => _chooseLocation;
+  String get myAds => _myAds;
+  String get noItemInAds => _noItemInAds;
 }

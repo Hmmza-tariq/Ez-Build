@@ -1,11 +1,10 @@
-import 'package:ez_build/app/data/local/my_shared_pref.dart';
-import 'package:ez_build/app/data/models/product_model.dart';
 import 'package:ez_build/utils/dummy_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import '../../../data/models/product_model.dart';
 
-class AddItemController extends GetxController {
+class ProductDetailsEditController extends GetxController {
   final _formKey = GlobalKey<FormState>();
   final _titleController = TextEditingController();
   final _descriptionController = TextEditingController();
@@ -13,8 +12,8 @@ class AddItemController extends GetxController {
   final _quantityController = TextEditingController();
   final _categoryController = TextEditingController();
   final _locationController = TextEditingController();
-  final bool _isFavorite = false;
-
+  bool _isFavorite = false;
+  final _product = Get.arguments as ProductModel;
   GlobalKey<FormState> get formKey => _formKey;
   List<String> imagesPath = ['', '', '', '', ''];
   int _index = 0;
@@ -30,10 +29,19 @@ class AddItemController extends GetxController {
 
   @override
   void onInit() {
-    _locationController.text = MySharedPref.getLocation()!;
+    imagesPath = _product.images;
+    _titleController.text = _product.title;
+    _descriptionController.text = _product.description;
+    _priceController.text = _product.price.toString();
+    _quantityController.text = _product.quantity;
+    _categoryController.text = _product.category;
+    _locationController.text = _product.location;
+    _index = _product.images.length;
+    _isFavorite = _product.isFavorite;
     super.onInit();
   }
 
+  get product => _product;
   Future<void> pickImage() async {
     final ImagePicker picker = ImagePicker();
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
@@ -46,8 +54,8 @@ class AddItemController extends GetxController {
   }
 
   void addProduct() {
-    DummyHelper.dummyProducts.add(ProductModel(
-        id: 9,
+    DummyHelper.dummyProducts[_product.id] = ProductModel(
+        id: _product.id,
         images: imagesPath,
         title: titleController.text,
         description: descriptionController.text,
@@ -55,6 +63,6 @@ class AddItemController extends GetxController {
         quantity: quantityController.text,
         category: categoryController.text,
         location: locationController.text,
-        isFavorite: false));
+        isFavorite: _isFavorite);
   }
 }

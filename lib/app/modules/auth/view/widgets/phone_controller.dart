@@ -76,15 +76,6 @@ class PhoneController extends GetxController {
     return null;
   }
 
-  Future<String?> recoverPassword(String email) async {
-    try {
-      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
-      return null;
-    } on FirebaseAuthException catch (e) {
-      return _getError(e.message!);
-    }
-  }
-
   String _getError(String error) {
     debugPrint('error: $error');
     if (error.contains('credential is incorrect')) {

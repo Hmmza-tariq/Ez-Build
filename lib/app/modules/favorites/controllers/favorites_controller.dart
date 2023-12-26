@@ -15,8 +15,9 @@ class FavoritesController extends GetxController {
 
   /// get the favorite products from the product list
   getFavoriteProducts() {
-    products =
-        DummyHelper.products.where((product) => product.isFavorite).toList();
+    products = DummyHelper.dummyProducts
+        .where((product) => product.isFavorite)
+        .toList();
     update();
   }
 }

@@ -4,6 +4,7 @@ class AssetsManager {
 
   static const homeIcon = 'assets/vectors/home.svg';
   static const favoritesIcon = 'assets/vectors/favorites.svg';
+  static const myAdsIcon = 'assets/vectors/myAds.svg';
   static const addIcon = 'assets/vectors/add.svg';
   static const chatIcon = 'assets/vectors/chat.svg';
   static const notificationsIcon = 'assets/vectors/notifications.svg';

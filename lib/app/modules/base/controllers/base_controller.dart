@@ -13,16 +13,13 @@ class BaseController extends GetxController {
     update();
   }
 
-  /// when the user press on the favorite button in the product
   onFavoriteButtonPressed({required int productId}) {
-    var product =
-        DummyHelper.products.firstWhere((product) => product.id == productId);
+    var product = DummyHelper.dummyProducts
+        .firstWhere((product) => product.id == productId);
     if (product.isFavorite) {
-      // remove product from favorites
       product.isFavorite = false;
       Get.find<FavoritesController>().getFavoriteProducts();
     } else {
-      // add product to favorites
       product.isFavorite = true;
       Get.find<FavoritesController>().getFavoriteProducts();
     }

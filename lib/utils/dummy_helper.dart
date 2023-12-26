@@ -1,10 +1,13 @@
+import 'package:ez_build/app/data/models/profile_moddel.dart';
+import 'package:ez_build/utils/profile_type.dart';
+
 import '../app/data/models/product_model.dart';
 import 'assets.dart';
 
 class DummyHelper {
   const DummyHelper._();
 
-  static List<ProductModel> products = [
+  static List<ProductModel> dummyProducts = [
     ProductModel(
       id: 1,
       images: [
@@ -102,4 +105,11 @@ class DummyHelper {
       isFavorite: false,
     ),
   ];
+
+  static ProfileModel dummyProfile = ProfileModel(
+      myProducts: dummyProducts.where((product) => product.id.isEven).toList(),
+      name: 'John Doe',
+      phone: '03001234567',
+      address: 'Peshawar Road, Rawalpindi',
+      category: ProfileTypes.seller);
 }

@@ -2,12 +2,14 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:get/get.dart';
 
-import '../controllers/add_item_controller.dart';
+import '../controllers/product_details_edit_controller.dart';
 
-class AddItemView extends GetView<AddItemController> {
-  const AddItemView({super.key});
+class ProductDetailsEditView extends GetView<ProductDetailsEditController> {
+  const ProductDetailsEditView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,8 +32,8 @@ class AddItemView extends GetView<AddItemController> {
                   mainAxisSpacing: 4,
                 ),
                 itemBuilder: (context, index) {
-                  return GetBuilder<AddItemController>(
-                    init: AddItemController(),
+                  return GetBuilder<ProductDetailsEditController>(
+                    init: ProductDetailsEditController(),
                     id: 'Image',
                     builder: (_) {
                       return SizedBox(

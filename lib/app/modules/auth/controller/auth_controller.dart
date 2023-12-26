@@ -33,28 +33,6 @@ class AuthController extends GetxController {
     return 'Error';
   }
 
-  Future<String?> authUserWithPhone(LoginData data) async {
-    final auth = FirebaseAuth.instance;
-    try {
-      await auth
-          .signInWithPhoneNumber(data.name)
-          // await auth
-          //     .verifyPhoneNumber(
-          //       phoneNumber: data.name,
-          //         verificationCompleted:
-          //             (PhoneAuthCredential phoneAuthCredential) {},
-          //         verificationFailed: (FirebaseAuthException error) {},
-          //         codeSent: (String verificationId, int? forceResendingToken) {},
-          //         codeAutoRetrievalTimeout: (String verificationId) {})
-          .then((value) {
-        return null;
-      });
-    } catch (e) {
-      return _getError(e.toString());
-    }
-    return 'Error';
-  }
-
   Future<String?> signupUser(SignupData data) async {
     final auth = FirebaseAuth.instance;
 

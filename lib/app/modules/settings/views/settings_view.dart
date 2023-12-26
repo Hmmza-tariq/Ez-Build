@@ -1,4 +1,5 @@
 import 'package:ez_build/config/provider/strings.dart';
+import 'package:ez_build/utils/dummy_helper.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -35,10 +36,10 @@ class SettingsView extends GetView<SettingsController> {
                 )),
             20.verticalSpace,
             SettingsItem(
-              title: Provider.of<StringsManager>(context).profileName,
+              title: DummyHelper.dummyProfile.name,
               icon: AssetsManager.userIcon,
               isAccount: true,
-              description: Provider.of<StringsManager>(context).phoneNumber,
+              description: DummyHelper.dummyProfile.phone,
             ),
             30.verticalSpace,
             Text(Provider.of<StringsManager>(context).settings,

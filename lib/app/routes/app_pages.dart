@@ -4,6 +4,10 @@ import 'package:ez_build/app/modules/auth/view/widgets/phone_binding.dart';
 import 'package:ez_build/app/modules/auth/view/widgets/phone_screen.dart';
 import 'package:ez_build/app/modules/location/bindings/location_binding.dart';
 import 'package:ez_build/app/modules/location/views/location_view.dart';
+import 'package:ez_build/app/modules/my_ads/bindings/my_ads_binding.dart';
+import 'package:ez_build/app/modules/my_ads/views/my_ads_view.dart';
+import 'package:ez_build/app/modules/product_details_edit/bindings/product_details_edit_binding.dart';
+import 'package:ez_build/app/modules/product_details_edit/views/product_details_edit_view.dart';
 import 'package:ez_build/app/modules/search/bindings/search_binding.dart';
 import 'package:ez_build/app/modules/search/views/search_view.dart';
 import 'package:get/get.dart';
@@ -66,6 +70,11 @@ class AppPages {
       binding: FavoritesBinding(),
     ),
     GetPage(
+      name: _Paths.MY_ADS,
+      page: () => const MyAdsView(),
+      binding: MyAdsBinding(),
+    ),
+    GetPage(
       name: _Paths.Chat,
       page: () => const ChatView(),
       binding: ChatBinding(),
@@ -94,6 +103,13 @@ class AppPages {
       name: _Paths.PRODUCT_DETAILS,
       page: () => const ProductDetailsView(),
       binding: ProductDetailsBinding(),
+      transition: Transition.rightToLeft,
+      transitionDuration: const Duration(milliseconds: 250),
+    ),
+    GetPage(
+      name: _Paths.PRODUCT_DETAILS_EDIT,
+      page: () => const ProductDetailsEditView(),
+      binding: ProductDetailsEditBinding(),
       transition: Transition.rightToLeft,
       transitionDuration: const Duration(milliseconds: 250),
     ),
