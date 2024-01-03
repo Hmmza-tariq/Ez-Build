@@ -2,7 +2,7 @@ import 'package:ez_build/app/data/models/profile_moddel.dart';
 import 'package:ez_build/utils/profile_type.dart';
 
 import '../app/data/models/product_model.dart';
-import 'assets.dart';
+import 'assets_manager.dart';
 
 class DummyHelper {
   const DummyHelper._();

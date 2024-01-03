@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../utils/assets.dart';
+import '../../../../utils/assets_manager.dart';
 import '../../../components/screen_title.dart';
 import '../controllers/settings_controller.dart';
 import 'widgets/settings_item.dart';

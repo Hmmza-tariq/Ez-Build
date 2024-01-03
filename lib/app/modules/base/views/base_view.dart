@@ -7,7 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../utils/assets.dart';
+import '../../../../utils/assets_manager.dart';
 import '../controllers/base_controller.dart';
 import '../../Chat/views/chat_view.dart';
 import '../../home/views/home_view.dart';

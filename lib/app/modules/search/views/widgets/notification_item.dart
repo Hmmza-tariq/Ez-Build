@@ -5,7 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../../utils/assets.dart';
+import '../../../../../utils/assets_manager.dart';
 
 class SearchItem extends StatelessWidget {
   const SearchItem({super.key});

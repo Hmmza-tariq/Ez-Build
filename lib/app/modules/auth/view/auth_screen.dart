@@ -1,7 +1,7 @@
 import 'package:ez_build/app/modules/auth/controller/auth_controller.dart';
 import 'package:ez_build/app/routes/app_pages.dart';
 import 'package:ez_build/config/provider/strings_manager.dart';
-import 'package:ez_build/utils/assets.dart';
+import 'package:ez_build/utils/assets_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../utils/assets.dart';
+import '../../../../utils/assets_manager.dart';
 import '../controllers/splash_controller.dart';
 
 class SplashView extends GetView<SplashController> {

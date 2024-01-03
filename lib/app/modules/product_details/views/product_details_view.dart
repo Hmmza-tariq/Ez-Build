@@ -9,7 +9,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../utils/assets.dart';
+import '../../../../utils/assets_manager.dart';
 import '../../../components/custom_button.dart';
 import '../controllers/product_details_controller.dart';
 import 'widgets/rounded_button.dart';
