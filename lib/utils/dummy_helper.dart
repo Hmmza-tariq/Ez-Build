@@ -20,7 +20,7 @@ class DummyHelper {
           'This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. ',
       quantity: '100 items',
       price: 250.99,
-      category: 'Building',
+      category: dummyCategories[0],
       location: 'Peshawar rd',
       isFavorite: false,
     ),
@@ -36,7 +36,7 @@ class DummyHelper {
           'This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. ',
       quantity: '400 items',
       price: 20.99,
-      category: 'Decoration',
+      category: dummyCategories[1],
       location: 'H12',
       isFavorite: false,
     ),
@@ -52,7 +52,7 @@ class DummyHelper {
           'This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. ',
       quantity: '30 items',
       price: 40.99,
-      category: 'Clothes',
+      category: dummyCategories[2],
       location: 'F11',
       isFavorite: false,
     ),
@@ -68,7 +68,7 @@ class DummyHelper {
           'This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. ',
       quantity: '100 items',
       price: 250.99,
-      category: 'Building',
+      category: dummyCategories[3],
       location: 'Blue Area',
       isFavorite: false,
     ),
@@ -84,7 +84,7 @@ class DummyHelper {
           'This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. ',
       quantity: '400 items',
       price: 20.99,
-      category: 'Decoration',
+      category: dummyCategories[4],
       location: 'E11',
       isFavorite: false,
     ),
@@ -100,10 +100,19 @@ class DummyHelper {
           'This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. This is description. ',
       quantity: '30 items',
       price: 40.99,
-      category: 'Clothes',
+      category: dummyCategories[5],
       location: 'g11',
       isFavorite: false,
     ),
+  ];
+
+  static List<String> dummyCategories = [
+    'Electronics',
+    'Clothes',
+    'Furniture',
+    'Books',
+    'Sports',
+    'Others'
   ];
 
   static ProfileModel dummyProfile = ProfileModel(

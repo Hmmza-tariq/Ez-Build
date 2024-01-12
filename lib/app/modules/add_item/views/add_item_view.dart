@@ -92,8 +92,14 @@ class AddItemView extends GetView<AddItemController> {
               decoration: const InputDecoration(labelText: 'Location'),
               // Add validation logic here
             ),
+            SizedBox(
+              height: 10.h,
+            ),
             ElevatedButton(
-              child: const Text('Submit'),
+              child: const Text(
+                'Submit',
+                style: TextStyle(fontSize: 20, color: Colors.white),
+              ),
               onPressed: () {
                 if (controller.formKey.currentState!.validate()) {
                   ScaffoldMessenger.of(context).showSnackBar(

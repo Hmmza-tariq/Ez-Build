@@ -15,12 +15,13 @@ class StringsManager with ChangeNotifier {
   static String _notifications = "Notifications";
   static String _settings = "Settings";
   static String _search = "Search";
+  static String _categories = "Categories";
   static String _addItem = 'Add Item View';
   static String _noItemInFavourite = 'No Products in Favorite Yet!';
   static String _noItemInAds = 'No Products in listed!';
   static String _quantity = 'Quantity';
   static String _price = 'Price';
-  static String _category = 'Category';
+  static String _category = 'Categories';
   static String _description = 'Description';
   static String _readMore = 'read more';
   static String _showLess = 'show less';
@@ -73,6 +74,7 @@ class StringsManager with ChangeNotifier {
     _notifications = isUrdu ? "اطلاعات" : "Notifications";
     _settings = isUrdu ? "ترتیبات" : "Settings";
     _search = isUrdu ? "تلاش" : "Search";
+    _categories = isUrdu ? "قسم" : "Categories";
     _addItem = isUrdu ? 'آئٹم شامل کریں دیکھیں' : 'Add Item View';
     _noItemInFavourite = isUrdu
         ? 'ابھی تک پسندیدہ میں کوئی مصنوعات نہیں ہیں!'
@@ -113,6 +115,7 @@ class StringsManager with ChangeNotifier {
   String get notifications => _notifications;
   String get settings => _settings;
   String get search => _search;
+  String get categories => _categories;
   String get addItem => _addItem;
   String get noItemInFavourite => _noItemInFavourite;
   String get quantity => _quantity;

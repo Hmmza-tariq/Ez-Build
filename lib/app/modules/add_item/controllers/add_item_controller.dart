@@ -31,6 +31,7 @@ class AddItemController extends GetxController {
   @override
   void onInit() {
     _locationController.text = MySharedPref.getLocation()!;
+
     super.onInit();
   }
 

@@ -1,176 +1,159 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:developer';
+
+import 'package:ez_build/app/data/models/users.dart';
+import 'package:ez_build/app/modules/Chat/controllers/chat_controller.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get_state_manager/src/simple/get_view.dart';
 
-import 'package:get/get.dart';
-
-import '../controllers/chat_controller.dart';
-
+//home screen -- where all available contacts are shown
 class ChatView extends GetView<ChatController> {
   const ChatView({super.key});
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return const Scaffold(body: Center(child: Text('Chat View')));
-  // }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: null,
-        actions: <Widget>[
-          IconButton(
-              icon: const Icon(Icons.close),
-              onPressed: () {
-                controller.auth.signOut();
-                Navigator.pop(context);
-              }),
-        ],
-        title: const Text('⚡️Chat'),
-        backgroundColor: Colors.lightBlueAccent,
-      ),
-      body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            StreamBuilder<QuerySnapshot>(
-              stream: controller.firestore
-                  .collection('messages')
-                  .orderBy('createdAt', descending: true)
-                  .snapshots(),
-              builder: (context, snapshot) {
-                if (!snapshot.hasData) {
-                  return const Center(
-                      child: CircularProgressIndicator(
-                    backgroundColor: Colors.lightBlueAccent,
-                  ));
-                }
-                final messages = snapshot.data?.docs;
-                List<MessageBubble> messageBubbles = [];
-                for (var msg in messages!) {
-                  final messageTxt =
-                      (msg.data() as Map<String, dynamic>)['text'];
-                  final messageSender =
-                      (msg.data() as Map<String, dynamic>)['sender'];
-                  final currentUser = controller.loggedInUser.email;
+    return GestureDetector(
+      //for hiding keyboard when a tap is detected on screen
+      onTap: () => FocusScope.of(context).unfocus(),
+      // child: WillPopScope(
+      //   //if search is on & back button is pressed then close search
+      //   //or else simple close current screen on back button click
+      //   onWillPop: () {
+      //     if (_isSearching) {
+      //       setState(() {
+      //         _isSearching = !_isSearching;
+      //       });
+      //       return Future.value(false);
+      //     } else {
+      //       return Future.value(true);
+      //     }
+      //   },
+      child: Scaffold(
+        //app bar
+        appBar: AppBar(
+          leading: const Icon(CupertinoIcons.home),
+          title: _isSearching
+              ? TextField(
+                  decoration: const InputDecoration(
+                      border: InputBorder.none, hintText: 'Name, Email, ...'),
+                  autofocus: true,
+                  style: const TextStyle(fontSize: 17, letterSpacing: 0.5),
+                  //when search text changes then updated search list
+                  onChanged: (val) {
+                    //search logic
+                    _searchList.clear();
 
-                  final messageBubble = MessageBubble(
-                    messageSender: messageSender,
-                    messageTxt: messageTxt,
-                    isMe: currentUser == messageSender,
-                  );
-                  messageBubbles.add(messageBubble);
-                }
-                return Expanded(
-                  child: ListView(
-                    reverse: true,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10.0, vertical: 20.0),
-                    children: messageBubbles,
-                  ),
-                );
-              },
-            ),
-            Container(
-              decoration: const BoxDecoration(
-                border: Border(
-                  top: BorderSide(color: Colors.lightBlueAccent, width: 2.0),
-                ),
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Expanded(
-                    child: TextField(
-                      controller: controller.messageTextController,
-                      onChanged: (value) {
-                        controller.messageText = value;
-                      },
-                      decoration: const InputDecoration(
-                        contentPadding: EdgeInsets.symmetric(
-                            vertical: 10.0, horizontal: 20.0),
-                        hintText: 'Type your message here...',
-                        border: InputBorder.none,
-                      ),
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      controller.messageTextController.clear();
-                      controller.firestore.collection('messages').add(
-                        {
-                          'text': controller.messageText,
-                          'sender': controller.loggedInUser.email,
-                          'createdAt': DateTime.now(),
-                        },
-                      );
-                    },
-                    child: const Text(
-                      'Send',
-                      style: TextStyle(
-                        color: Colors.lightBlueAccent,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18.0,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+                    for (var i in _list) {
+                      if (i.name.toLowerCase().contains(val.toLowerCase()) ||
+                          i.email.toLowerCase().contains(val.toLowerCase())) {
+                        _searchList.add(i);
+                        setState(() {
+                          _searchList;
+                        });
+                      }
+                    }
+                  },
+                )
+              : const Text('We Chat'),
+          actions: [
+            //search user button
+            IconButton(
+                onPressed: () {
+                  setState(() {
+                    _isSearching = !_isSearching;
+                  });
+                },
+                icon: Icon(_isSearching
+                    ? CupertinoIcons.clear_circled_solid
+                    : Icons.search)),
+
+            //more features button
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => ProfileScreen(user: APIs.me)));
+                },
+                icon: const Icon(Icons.more_vert))
           ],
         ),
+
+        //floating button to add new user
+        floatingActionButton: Padding(
+          padding: const EdgeInsets.only(bottom: 10),
+          child: FloatingActionButton(
+              onPressed: () {
+                _addChatUserDialog();
+              },
+              child: const Icon(Icons.add_comment_rounded)),
+        ),
+
+        //body
+        body: StreamBuilder(
+          stream: APIs.getMyUsersId(),
+
+          //get id of only known users
+          builder: (context, snapshot) {
+            switch (snapshot.connectionState) {
+              //if data is loading
+              case ConnectionState.waiting:
+              case ConnectionState.none:
+                return const Center(child: CircularProgressIndicator());
+
+              //if some or all data is loaded then show it
+              case ConnectionState.active:
+              case ConnectionState.done:
+                return StreamBuilder(
+                  stream: APIs.getAllUsers(
+                      snapshot.data?.docs.map((e) => e.id).toList() ?? []),
+
+                  //get only those user, who's ids are provided
+                  builder: (context, snapshot) {
+                    switch (snapshot.connectionState) {
+                      //if data is loading
+                      case ConnectionState.waiting:
+                      case ConnectionState.none:
+                      // return const Center(
+                      //     child: CircularProgressIndicator());
+
+                      //if some or all data is loaded then show it
+                      case ConnectionState.active:
+                      case ConnectionState.done:
+                        final data = snapshot.data?.docs;
+                        _list = data
+                                ?.map((e) => ChatUser.fromJson(e.data()))
+                                .toList() ??
+                            [];
+
+                        if (_list.isNotEmpty) {
+                          return ListView.builder(
+                              itemCount: _isSearching
+                                  ? _searchList.length
+                                  : _list.length,
+                              padding: EdgeInsets.only(top: mq.height * .01),
+                              physics: const BouncingScrollPhysics(),
+                              itemBuilder: (context, index) {
+                                return ChatUserCard(
+                                    user: _isSearching
+                                        ? _searchList[index]
+                                        : _list[index]);
+                              });
+                        } else {
+                          return const Center(
+                            child: Text('No Connections Found!',
+                                style: TextStyle(fontSize: 20)),
+                          );
+                        }
+                    }
+                  },
+                );
+            }
+          },
+        ),
       ),
-    );
-  }
-}
-
-class MessageBubble extends StatelessWidget {
-  final String messageTxt;
-  final String messageSender;
-  final bool isMe;
-
-  const MessageBubble(
-      {super.key,
-      required this.messageTxt,
-      required this.messageSender,
-      required this.isMe});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment:
-          isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
-      children: [
-        Text(
-          messageSender,
-          style: const TextStyle(color: Colors.black54, fontSize: 12),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Material(
-            elevation: 5.0,
-            borderRadius: BorderRadius.only(
-                topLeft: isMe
-                    ? const Radius.circular(30.0)
-                    : const Radius.circular(0),
-                bottomLeft: const Radius.circular(30.0),
-                bottomRight: const Radius.circular(30.0),
-                topRight: isMe
-                    ? const Radius.circular(0)
-                    : const Radius.circular(30)),
-            color: isMe ? Colors.lightBlueAccent : Colors.white,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-              child: Text(
-                messageTxt,
-                style: TextStyle(
-                    color: isMe ? Colors.white : Colors.black54, fontSize: 20),
-              ),
-            ),
-          ),
-        ),
-      ],
+      // ),
     );
   }
 }
