@@ -10,6 +10,7 @@ class AddItemView extends GetView<AddItemController> {
   const AddItemView({super.key});
   @override
   Widget build(BuildContext context) {
+    Color color = Theme.of(context).primaryColor;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Add Product'),
@@ -62,44 +63,65 @@ class AddItemView extends GetView<AddItemController> {
             ),
             TextFormField(
               controller: controller.titleController,
-              decoration: const InputDecoration(labelText: 'Title'),
+              decoration: InputDecoration(
+                  labelText: 'Title',
+                  labelStyle: TextStyle(color: color),
+                  focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: color))),
               // Add validation logic here
             ),
             TextFormField(
               controller: controller.descriptionController,
-              decoration: const InputDecoration(labelText: 'Description'),
+              decoration: InputDecoration(
+                  labelText: 'Description',
+                  labelStyle: TextStyle(color: color),
+                  focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: color))),
               // Add validation logic here
             ),
             TextFormField(
               keyboardType: TextInputType.number,
               controller: controller.priceController,
-              decoration: const InputDecoration(labelText: 'Price'),
+              decoration: InputDecoration(
+                  labelText: 'Price',
+                  labelStyle: TextStyle(color: color),
+                  focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: color))),
               // Add validation logic here
             ),
             TextFormField(
               keyboardType: TextInputType.number,
               controller: controller.quantityController,
-              decoration: const InputDecoration(labelText: 'Quantity'),
+              decoration: InputDecoration(
+                  labelText: 'Quantity',
+                  labelStyle: TextStyle(color: color),
+                  focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: color))),
               // Add validation logic here
             ),
             TextFormField(
               controller: controller.categoryController,
-              decoration: const InputDecoration(labelText: 'Category'),
+              decoration: InputDecoration(
+                  labelText: 'Category',
+                  labelStyle: TextStyle(color: color),
+                  focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: color))),
               // Add validation logic here
             ),
             TextFormField(
               controller: controller.locationController,
-              decoration: const InputDecoration(labelText: 'Location'),
+              decoration: InputDecoration(
+                  labelText: 'Location',
+                  labelStyle: TextStyle(color: color),
+                  focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: color))),
               // Add validation logic here
             ),
             SizedBox(
               height: 10.h,
             ),
             ElevatedButton(
-              child: const Text(
-                'Submit',
-                style: TextStyle(fontSize: 20, color: Colors.white),
-              ),
+              child: const Text('Submit'),
               onPressed: () {
                 if (controller.formKey.currentState!.validate()) {
                   ScaffoldMessenger.of(context).showSnackBar(
