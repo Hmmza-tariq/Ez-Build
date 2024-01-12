@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ez_build/app/modules/Chat/controllers/chat_controller.dart';
-import 'package:ez_build/app/modules/Chat/views/chat_view.dart';
+import 'package:ez_build/app/modules/Chat/views/widgets/message_bubble.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
