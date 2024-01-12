@@ -1,4 +1,5 @@
 import 'package:ez_build/app/modules/add_item/views/add_item_view.dart';
+import 'package:ez_build/app/modules/chat/views/chat_view.dart';
 import 'package:ez_build/app/modules/my_ads/views/my_ads_view.dart';
 import 'package:ez_build/config/provider/strings_manager.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,6 @@ import 'package:provider/provider.dart';
 
 import '../../../../utils/assets_manager.dart';
 import '../controllers/base_controller.dart';
-import '../../Chat/views/chat_view.dart';
 import '../../home/views/home_view.dart';
 import '../../settings/views/settings_view.dart';
 
