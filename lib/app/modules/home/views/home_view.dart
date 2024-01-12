@@ -77,6 +77,54 @@ class HomeView extends GetView<HomeController> {
               title: Provider.of<StringsManager>(context).home,
             ),
             20.verticalSpace,
+            SizedBox(
+              height: 260.h,
+              child: ListView.builder(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: controller.products.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: ProductItem(
+                        product: controller.products[index],
+                      ),
+                    );
+                  }),
+            ),
+            20.verticalSpace,
+            ScreenTitle(
+              title: Provider.of<StringsManager>(context).categories,
+            ),
+            SizedBox(
+              height: 60.h,
+              child: ListView.builder(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: controller.categories.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: const EdgeInsets.all(8.0),
+                      width: 100.w,
+                      decoration: BoxDecoration(
+                        color: controller.colors[index],
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Center(
+                          child: Text(
+                            controller.categories[index],
+                            style: context.theme.textTheme.bodySmall!.copyWith(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  }),
+            ),
+            20.verticalSpace,
             GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,

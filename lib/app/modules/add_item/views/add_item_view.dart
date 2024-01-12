@@ -117,9 +117,11 @@ class AddItemView extends GetView<AddItemController> {
                       borderSide: BorderSide(color: color))),
               // Add validation logic here
             ),
+            SizedBox(
+              height: 10.h,
+            ),
             ElevatedButton(
-              child:
-                  const Text('Submit', style: TextStyle(color: Colors.white)),
+              child: const Text('Submit'),
               onPressed: () {
                 if (controller.formKey.currentState!.validate()) {
                   ScaffoldMessenger.of(context).showSnackBar(
