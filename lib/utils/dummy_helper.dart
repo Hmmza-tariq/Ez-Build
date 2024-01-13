@@ -1,4 +1,5 @@
 import 'package:ez_build/app/data/models/profile_moddel.dart';
+import 'package:ez_build/app/data/models/users.dart';
 import 'package:ez_build/utils/profile_type.dart';
 
 import '../app/data/models/product_model.dart';
@@ -121,4 +122,37 @@ class DummyHelper {
       phone: '03001234567',
       address: 'Peshawar Road, Rawalpindi',
       category: ProfileTypes.seller);
+
+  static List<ChatUser> dummyUsers = [
+    ChatUser(
+        name: 'User 1',
+        image: AssetsManager.userIcon,
+        id: '1',
+        about: 'User 1',
+        createdAt: '01-01-2021',
+        email: 'user1@gmail.com',
+        isOnline: false,
+        lastActive: 'yesterday',
+        pushToken: '111'),
+    ChatUser(
+        name: 'User 2',
+        image: AssetsManager.userIcon,
+        id: '2',
+        about: 'User 2',
+        createdAt: '01-01-2021',
+        email: 'user2@gmail.com',
+        isOnline: false,
+        lastActive: 'yesterday',
+        pushToken: '222'),
+    ChatUser(
+        name: 'User 3',
+        image: AssetsManager.userIcon,
+        id: '3',
+        about: 'User 3',
+        createdAt: '01-01-2021',
+        email: 'user3@gmail.com',
+        isOnline: false,
+        lastActive: 'yesterday',
+        pushToken: '333'),
+  ];
 }

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ez_build/app/data/models/users.dart';
+import 'package:ez_build/utils/dummy_helper.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -58,7 +59,7 @@ class ChatController extends GetxController {
   }
 
   // for storing all users
-  final List<ChatUser> list = [];
+  final List<ChatUser> list = DummyHelper.dummyUsers;
 
   // for storing searched items
   final List<ChatUser> searchList = [];

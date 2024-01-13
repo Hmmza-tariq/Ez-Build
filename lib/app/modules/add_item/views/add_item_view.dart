@@ -13,7 +13,8 @@ class AddItemView extends GetView<AddItemController> {
     Color color = Theme.of(context).primaryColor;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Add Product'),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        title: const Center(child: Text('Add Product')),
       ),
       body: Form(
         key: controller.formKey,
