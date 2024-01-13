@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ez_build/app/data/api/apis.dart';
 import 'package:ez_build/app/data/models/message.dart';
 import 'package:ez_build/app/data/models/users.dart';
-import 'package:ez_build/app/modules/chat/views/chat_view.dart';
 import 'package:ez_build/app/modules/chat/views/widgets/my_date_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -32,8 +31,7 @@ class _ChatUserCardState extends State<ChatUserCard> {
       child: InkWell(
           onTap: () {
             //for navigating to chat screen
-            Navigator.push(
-                context, MaterialPageRoute(builder: (_) => const ChatView()));
+            //  Get.toNamed(Routes.);
             //user: widget.user
           },
           child: StreamBuilder(

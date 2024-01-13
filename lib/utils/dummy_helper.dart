@@ -1,4 +1,4 @@
-import 'package:ez_build/app/data/models/profile_moddel.dart';
+import 'package:ez_build/app/data/models/profile_model.dart';
 import 'package:ez_build/app/data/models/users.dart';
 import 'package:ez_build/utils/profile_type.dart';
 
@@ -118,14 +118,14 @@ class DummyHelper {
 
   static ProfileModel dummyProfile = ProfileModel(
       myProducts: dummyProducts.where((product) => product.id.isEven).toList(),
-      name: 'John Doe',
+      name: 'EzBuild',
       phone: '03001234567',
       address: 'Peshawar Road, Rawalpindi',
       category: ProfileTypes.seller);
 
   static List<ChatUser> dummyUsers = [
     ChatUser(
-        name: 'User 1',
+        name: 'Ahmed',
         image: AssetsManager.userIcon,
         id: '1',
         about: 'User 1',
@@ -133,9 +133,11 @@ class DummyHelper {
         email: 'user1@gmail.com',
         isOnline: false,
         lastActive: 'yesterday',
-        pushToken: '111'),
+        pushToken: '111',
+        lastMessage: 'Hello',
+        lastMessageTime: '12:00'),
     ChatUser(
-        name: 'User 2',
+        name: 'Abdullah',
         image: AssetsManager.userIcon,
         id: '2',
         about: 'User 2',
@@ -143,9 +145,11 @@ class DummyHelper {
         email: 'user2@gmail.com',
         isOnline: false,
         lastActive: 'yesterday',
-        pushToken: '222'),
+        pushToken: '222',
+        lastMessage: 'Meet me at 5',
+        lastMessageTime: '1:00'),
     ChatUser(
-        name: 'User 3',
+        name: 'Ali',
         image: AssetsManager.userIcon,
         id: '3',
         about: 'User 3',
@@ -153,6 +157,8 @@ class DummyHelper {
         email: 'user3@gmail.com',
         isOnline: false,
         lastActive: 'yesterday',
-        pushToken: '333'),
+        pushToken: '333',
+        lastMessage: 'final?',
+        lastMessageTime: '8:00'),
   ];
 }

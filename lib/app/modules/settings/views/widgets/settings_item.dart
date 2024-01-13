@@ -56,12 +56,7 @@ class SettingsItem extends StatelessWidget {
               ),
             )
           : isLanguage
-              ?
-              // ElevatedButton(
-              //     onPressed:
-              //         Provider.of<StringsManager>(context).toggleLanguage(),
-              //     child: const Text('Change Language'))
-              GetBuilder<SettingsController>(
+              ? GetBuilder<SettingsController>(
                   id: 'Language',
                   builder: (controller) => CupertinoSwitch(
                     value: !controller.isUrdu,

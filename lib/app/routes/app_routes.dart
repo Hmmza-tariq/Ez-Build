@@ -19,6 +19,9 @@ abstract class Routes {
   static const SETTINGS = _Paths.SETTINGS;
   static const PRODUCT_DETAILS = _Paths.PRODUCT_DETAILS;
   static const PRODUCT_DETAILS_EDIT = _Paths.PRODUCT_DETAILS_EDIT;
+  static const CHAT_ROOM = _Paths.CHAT_ROOM;
+  static const PROFILE = _Paths.PROFILE;
+  static const BLOCK_AND_REPORT = _Paths.BLOCK_AND_REPORT;
 }
 
 abstract class _Paths {
@@ -37,4 +40,7 @@ abstract class _Paths {
   static const SETTINGS = '/settings';
   static const PRODUCT_DETAILS = '/product-details';
   static const PRODUCT_DETAILS_EDIT = '/product-details-edit';
+  static const CHAT_ROOM = '/chat-room';
+  static const PROFILE = '/profile';
+  static const BLOCK_AND_REPORT = '/block-and-report';
 }

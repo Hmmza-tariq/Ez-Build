@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:ez_build/utils/dummy_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -63,57 +64,72 @@ class AddItemView extends GetView<AddItemController> {
               ),
             ),
             TextFormField(
+              cursorColor: color,
               controller: controller.titleController,
               decoration: InputDecoration(
                   labelText: 'Title',
-                  labelStyle: TextStyle(color: color),
+                  labelStyle: const TextStyle(color: Colors.white),
                   focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: color))),
               // Add validation logic here
             ),
             TextFormField(
+              cursorColor: color,
               controller: controller.descriptionController,
               decoration: InputDecoration(
                   labelText: 'Description',
-                  labelStyle: TextStyle(color: color),
+                  labelStyle: const TextStyle(color: Colors.white),
                   focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: color))),
               // Add validation logic here
             ),
             TextFormField(
+              cursorColor: color,
               keyboardType: TextInputType.number,
               controller: controller.priceController,
               decoration: InputDecoration(
                   labelText: 'Price',
-                  labelStyle: TextStyle(color: color),
+                  labelStyle: const TextStyle(color: Colors.white),
                   focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: color))),
               // Add validation logic here
             ),
             TextFormField(
+              cursorColor: color,
               keyboardType: TextInputType.number,
               controller: controller.quantityController,
               decoration: InputDecoration(
                   labelText: 'Quantity',
-                  labelStyle: TextStyle(color: color),
+                  labelStyle: const TextStyle(color: Colors.white),
                   focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: color))),
               // Add validation logic here
             ),
-            TextFormField(
-              controller: controller.categoryController,
+            DropdownButtonFormField<String>(
               decoration: InputDecoration(
-                  labelText: 'Category',
-                  labelStyle: TextStyle(color: color),
-                  focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: color))),
+                labelText: 'Category',
+                labelStyle: const TextStyle(color: Colors.white),
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: color),
+                ),
+              ),
+              items: DummyHelper.dummyCategories.map((String category) {
+                return DropdownMenuItem<String>(
+                  value: category,
+                  child: Text(category),
+                );
+              }).toList(),
+              onChanged: (String? newValue) {
+                controller.setCategory(newValue!);
+              },
               // Add validation logic here
             ),
             TextFormField(
+              cursorColor: color,
               controller: controller.locationController,
               decoration: InputDecoration(
                   labelText: 'Location',
-                  labelStyle: TextStyle(color: color),
+                  labelStyle: const TextStyle(color: Colors.white),
                   focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: color))),
               // Add validation logic here
@@ -122,7 +138,8 @@ class AddItemView extends GetView<AddItemController> {
               height: 10.h,
             ),
             ElevatedButton(
-              child: const Text('Submit'),
+              child:
+                  const Text('Submit', style: TextStyle(color: Colors.white)),
               onPressed: () {
                 if (controller.formKey.currentState!.validate()) {
                   ScaffoldMessenger.of(context).showSnackBar(

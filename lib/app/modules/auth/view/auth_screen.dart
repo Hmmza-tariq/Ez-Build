@@ -20,7 +20,7 @@ class AuthScreen extends GetView<AuthController> {
       builder: (_) {
         return FlutterLogin(
           title: Provider.of<StringsManager>(context).appName,
-          logo: const AssetImage(AssetsManager.logo),
+          logo: const AssetImage(AssetsManager.logoForegroundRound),
           onLogin: controller.authUser,
           onSignup: controller.signupUser,
           userType: LoginUserType.email,

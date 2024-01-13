@@ -1,3 +1,4 @@
+import 'package:ez_build/app/routes/app_pages.dart';
 import 'package:ez_build/config/provider/strings_manager.dart';
 import 'package:ez_build/utils/dummy_helper.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -40,6 +41,7 @@ class SettingsView extends GetView<SettingsController> {
               icon: AssetsManager.userIcon,
               isAccount: true,
               description: DummyHelper.dummyProfile.phone,
+              onTap: () => Get.toNamed(Routes.PROFILE),
             ),
             30.verticalSpace,
             Text(Provider.of<StringsManager>(context).settings,
@@ -67,6 +69,13 @@ class SettingsView extends GetView<SettingsController> {
               title: Provider.of<StringsManager>(context).help,
               icon: AssetsManager.helpIcon,
               description: '',
+            ),
+            25.verticalSpace,
+            SettingsItem(
+              title: Provider.of<StringsManager>(context).blockOrReport,
+              icon: AssetsManager.blockIcon,
+              description: '',
+              onTap: () => Get.toNamed(Routes.BLOCK_AND_REPORT),
             ),
             25.verticalSpace,
             SettingsItem(

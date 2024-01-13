@@ -1,6 +1,8 @@
 class AssetsManager {
   // assets images
   static const logo = 'assets/images/app_icon.png';
+  static const logoForegroundRound =
+      'assets/images/app_icon_foreground_round.png';
 
   static const homeIcon = 'assets/vectors/home.svg';
   static const favoritesIcon = 'assets/vectors/favorites.svg';
@@ -18,6 +20,7 @@ class AssetsManager {
   static const themeIcon = 'assets/vectors/theme.svg';
   static const languageIcon = 'assets/vectors/language.svg';
   static const helpIcon = 'assets/vectors/help.svg';
+  static const blockIcon = 'assets/vectors/block.svg';
   static const logoutIcon = 'assets/vectors/logout.svg';
   static const location = 'assets/vectors/location.svg';
   static const locationPin = 'assets/vectors/location_pin.svg';

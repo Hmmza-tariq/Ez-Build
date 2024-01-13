@@ -11,20 +11,19 @@ class AddItemController extends GetxController {
   final _descriptionController = TextEditingController();
   final _priceController = TextEditingController();
   final _quantityController = TextEditingController();
-  final _categoryController = TextEditingController();
   final _locationController = TextEditingController();
   final bool _isFavorite = false;
 
   GlobalKey<FormState> get formKey => _formKey;
   List<String> imagesPath = ['', '', '', '', ''];
   int _index = 0;
+  String category = '';
   int get index => _index;
   List<String> get images => imagesPath;
   TextEditingController get titleController => _titleController;
   TextEditingController get descriptionController => _descriptionController;
   TextEditingController get priceController => _priceController;
   TextEditingController get quantityController => _quantityController;
-  TextEditingController get categoryController => _categoryController;
   TextEditingController get locationController => _locationController;
   bool get isFavorite => _isFavorite;
 
@@ -46,6 +45,10 @@ class AddItemController extends GetxController {
     update(['Image']);
   }
 
+  void setCategory(String value) {
+    category = value;
+  }
+
   void addProduct() {
     DummyHelper.dummyProducts.add(ProductModel(
         id: 9,
@@ -54,7 +57,7 @@ class AddItemController extends GetxController {
         description: descriptionController.text,
         price: priceController.text as double,
         quantity: quantityController.text,
-        category: categoryController.text,
+        category: category,
         location: locationController.text,
         isFavorite: false));
   }

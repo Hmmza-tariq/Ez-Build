@@ -10,8 +10,8 @@ class ProductDetailsEditController extends GetxController {
   final _descriptionController = TextEditingController();
   final _priceController = TextEditingController();
   final _quantityController = TextEditingController();
-  final _categoryController = TextEditingController();
   final _locationController = TextEditingController();
+  String category = '';
   bool _isFavorite = false;
   final _product = Get.arguments as ProductModel;
   GlobalKey<FormState> get formKey => _formKey;
@@ -23,7 +23,6 @@ class ProductDetailsEditController extends GetxController {
   TextEditingController get descriptionController => _descriptionController;
   TextEditingController get priceController => _priceController;
   TextEditingController get quantityController => _quantityController;
-  TextEditingController get categoryController => _categoryController;
   TextEditingController get locationController => _locationController;
   bool get isFavorite => _isFavorite;
 
@@ -34,8 +33,8 @@ class ProductDetailsEditController extends GetxController {
     _descriptionController.text = _product.description;
     _priceController.text = _product.price.toString();
     _quantityController.text = _product.quantity;
-    _categoryController.text = _product.category;
     _locationController.text = _product.location;
+    category = _product.category;
     _index = _product.images.length;
     _isFavorite = _product.isFavorite;
     super.onInit();
@@ -53,6 +52,10 @@ class ProductDetailsEditController extends GetxController {
     update(['Image']);
   }
 
+  void setCategory(String value) {
+    category = value;
+  }
+
   void addProduct() {
     DummyHelper.dummyProducts[_product.id] = ProductModel(
         id: _product.id,
@@ -61,7 +64,7 @@ class ProductDetailsEditController extends GetxController {
         description: descriptionController.text,
         price: priceController.text as double,
         quantity: quantityController.text,
-        category: categoryController.text,
+        category: category,
         location: locationController.text,
         isFavorite: _isFavorite);
   }

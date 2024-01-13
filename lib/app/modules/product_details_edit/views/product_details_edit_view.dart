@@ -1,5 +1,4 @@
-import 'dart:io';
-
+import 'package:ez_build/utils/dummy_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -12,9 +11,11 @@ class ProductDetailsEditView extends GetView<ProductDetailsEditController> {
 
   @override
   Widget build(BuildContext context) {
+    Color color = Theme.of(context).primaryColor;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Add Product'),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        title: const Text('Edit Product'),
       ),
       body: Form(
         key: controller.formKey,
@@ -47,13 +48,21 @@ class ProductDetailsEditView extends GetView<ProductDetailsEditController> {
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: Center(
-                              child: controller.imagesPath[index].isEmpty
-                                  ? const Icon(Icons.add_a_photo)
-                                  : Image.file(
-                                      File(controller.imagesPath[index]),
-                                      fit: BoxFit.cover,
-                                    ),
-                            ),
+                                child: controller.imagesPath[index].isEmpty
+                                    ? const Icon(Icons.add_a_photo)
+                                    : ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(18.r),
+                                        child: Image.asset(
+                                          controller.product.images[index],
+                                          fit: BoxFit.cover,
+                                          // height: 500.h,
+                                          // ).animate().slideX(
+                                          //       duration: const Duration(milliseconds: 300),
+                                          //       begin: 1,
+                                          //       curve: Curves.easeInSine,
+                                        ),
+                                      )),
                           )),
                         ),
                       );
@@ -63,39 +72,83 @@ class ProductDetailsEditView extends GetView<ProductDetailsEditController> {
               ),
             ),
             TextFormField(
+              cursorColor: color,
               controller: controller.titleController,
-              decoration: const InputDecoration(labelText: 'Title'),
+              decoration: InputDecoration(
+                  labelText: 'Title',
+                  labelStyle: const TextStyle(color: Colors.white),
+                  focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: color))),
               // Add validation logic here
             ),
             TextFormField(
+              cursorColor: color,
               controller: controller.descriptionController,
-              decoration: const InputDecoration(labelText: 'Description'),
+              decoration: InputDecoration(
+                  labelText: 'Description',
+                  labelStyle: const TextStyle(color: Colors.white),
+                  focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: color))),
               // Add validation logic here
             ),
             TextFormField(
+              cursorColor: color,
               keyboardType: TextInputType.number,
               controller: controller.priceController,
-              decoration: const InputDecoration(labelText: 'Price'),
+              decoration: InputDecoration(
+                  labelText: 'Price',
+                  labelStyle: const TextStyle(color: Colors.white),
+                  focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: color))),
               // Add validation logic here
             ),
             TextFormField(
+              cursorColor: color,
               keyboardType: TextInputType.number,
               controller: controller.quantityController,
-              decoration: const InputDecoration(labelText: 'Quantity'),
+              decoration: InputDecoration(
+                  labelText: 'Quantity',
+                  labelStyle: const TextStyle(color: Colors.white),
+                  focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: color))),
+              // Add validation logic here
+            ),
+            DropdownButtonFormField<String>(
+              value: controller.category,
+              decoration: InputDecoration(
+                labelText: 'Category',
+                labelStyle: const TextStyle(color: Colors.white),
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: color),
+                ),
+              ),
+              items: DummyHelper.dummyCategories.map((String category) {
+                return DropdownMenuItem<String>(
+                  value: category,
+                  child: Text(category),
+                );
+              }).toList(),
+              onChanged: (String? newValue) {
+                controller.setCategory(newValue!);
+              },
               // Add validation logic here
             ),
             TextFormField(
-              controller: controller.categoryController,
-              decoration: const InputDecoration(labelText: 'Category'),
-              // Add validation logic here
-            ),
-            TextFormField(
+              cursorColor: color,
               controller: controller.locationController,
-              decoration: const InputDecoration(labelText: 'Location'),
+              decoration: InputDecoration(
+                  labelText: 'Location',
+                  labelStyle: const TextStyle(color: Colors.white),
+                  focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: color))),
               // Add validation logic here
+            ),
+            SizedBox(
+              height: 10.h,
             ),
             ElevatedButton(
-              child: const Text('Submit'),
+              child:
+                  const Text('Submit', style: TextStyle(color: Colors.white)),
               onPressed: () {
                 if (controller.formKey.currentState!.validate()) {
                   ScaffoldMessenger.of(context).showSnackBar(

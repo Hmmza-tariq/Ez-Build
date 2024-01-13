@@ -30,6 +30,7 @@ class StringsManager with ChangeNotifier {
   static String _darkMode = 'Dark Mode';
   static String _language = 'Language';
   static String _help = 'Help';
+  static String _blockOrReport = 'Block or Report a user';
   static String _logout = 'Logout';
   static String _noData = 'No Data';
   static const String _english = 'English';
@@ -90,6 +91,7 @@ class StringsManager with ChangeNotifier {
     _darkMode = isUrdu ? 'ڈارک موڈ' : 'Dark Mode';
     _language = isUrdu ? 'زبان' : 'Language';
     _help = isUrdu ? 'مدد' : 'Help';
+    _blockOrReport = isUrdu ? 'بلاک یا رپورٹ کریں' : 'Block or Report a user';
     _logout = isUrdu ? 'لاگ آؤٹ' : 'Logout';
     _noData = isUrdu ? 'کوئی ڈیٹا نہیں' : 'No Data';
     _myLocation = isUrdu ? "میری جگہ " : "My Location ";
@@ -129,6 +131,7 @@ class StringsManager with ChangeNotifier {
   String get darkMode => _darkMode;
   String get language => _language;
   String get help => _help;
+  String get blockOrReport => _blockOrReport;
   String get logout => _logout;
   String get noData => _noData;
   String get english => _english;

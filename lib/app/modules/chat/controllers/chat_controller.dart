@@ -1,63 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ez_build/app/data/models/users.dart';
 import 'package:ez_build/utils/dummy_helper.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class ChatController extends GetxController {
-  final _auth = FirebaseAuth.instance;
-  final _firestore = FirebaseFirestore.instance;
-  final messageTextController = TextEditingController();
-  late User loggedInUser;
-  late String messageText;
-
-  @override
-  void onInit() {
-    super.onInit();
-    getCurrentUser();
-
-    // APIs.getSelfInfo();
-
-    //for updating user active status according to lifecycle events
-    //resume -- active or online
-    //pause  -- inactive or offline
-    // SystemChannels.lifecycle.setMessageHandler((message) {
-    //   print('Message: $message');
-
-    //     if (APIs.auth.currentUser != null) {
-    //       if (message.toString().contains('resume')) {
-    //         APIs.updateActiveStatus(true);
-    //       }
-
-    // void toggleSearching() {}
-    //       if (m
-
-    // void toggleSearching() {}essage.toString().contains('pause')) {
-    //         APIs.updateActiveStatus(false);
-    //       }
-    //     }
-
-    //     return Future.value(message);
-    //   });
-    // }
-    // });
-  }
-
-  get firestore => _firestore;
-  get auth => _auth;
-  void getCurrentUser() async {
-    final user = _auth.currentUser;
-    try {
-      if (user != null) {
-        loggedInUser = user;
-      }
-    } catch (e) {
-      debugPrint(e.toString());
-    }
-  }
-
   // for storing all users
   final List<ChatUser> list = DummyHelper.dummyUsers;
 
@@ -138,4 +84,6 @@ class ChatController extends GetxController {
     isSearching = !isSearching;
     update();
   }
+
+  void showMoreFeatures(context) {}
 }
