@@ -1,4 +1,4 @@
-# ez_build
+# Ez Build
 
 An online buy and sell app prototype
 
