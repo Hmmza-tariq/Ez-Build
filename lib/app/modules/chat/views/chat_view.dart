@@ -1,11 +1,9 @@
 import 'package:ez_build/app/modules/Chat/controllers/chat_controller.dart';
-import 'package:ez_build/app/modules/chat/views/widgets/chat_user_card.dart';
 import 'package:ez_build/app/routes/app_pages.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_view.dart';
 
 class ChatView extends GetView<ChatController> {
   const ChatView({super.key});
@@ -16,21 +14,26 @@ class ChatView extends GetView<ChatController> {
         //app bar
         appBar: AppBar(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-          title: const Text('Chat'),
+          title: Text('Chat',
+              style: TextStyle(
+                  color: context.theme.textTheme.displayMedium?.color)),
           actions: [
             //search user button
             IconButton(
                 onPressed: () => controller.toggleSearching(),
-                icon: Icon(controller.isSearching
-                    ? CupertinoIcons.clear_circled_solid
-                    : Icons.search)),
+                icon: Icon(
+                    controller.isSearching
+                        ? CupertinoIcons.clear_circled_solid
+                        : Icons.search,
+                    color: context.theme.textTheme.displayMedium?.color)),
 
             //more features button
             IconButton(
                 onPressed: () {
                   // controller.showMoreFeatures(context);
                 },
-                icon: const Icon(Icons.more_vert))
+                icon: Icon(Icons.more_vert,
+                    color: context.theme.textTheme.displayMedium?.color)),
           ],
         ),
 

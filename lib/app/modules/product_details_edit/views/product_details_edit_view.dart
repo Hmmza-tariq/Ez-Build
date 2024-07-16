@@ -76,7 +76,12 @@ class ProductDetailsEditView extends GetView<ProductDetailsEditController> {
               controller: controller.titleController,
               decoration: InputDecoration(
                   labelText: 'Title',
-                  labelStyle: const TextStyle(color: Colors.white),
+                  labelStyle: context.theme.textTheme.displayMedium
+                      ?.copyWith(color: Colors.grey),
+                  enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          color:
+                              context.theme.textTheme.displayMedium!.color!)),
                   focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: color))),
               // Add validation logic here
@@ -86,7 +91,12 @@ class ProductDetailsEditView extends GetView<ProductDetailsEditController> {
               controller: controller.descriptionController,
               decoration: InputDecoration(
                   labelText: 'Description',
-                  labelStyle: const TextStyle(color: Colors.white),
+                  labelStyle: context.theme.textTheme.displayMedium
+                      ?.copyWith(color: Colors.grey),
+                  enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          color:
+                              context.theme.textTheme.displayMedium!.color!)),
                   focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: color))),
               // Add validation logic here
@@ -97,7 +107,12 @@ class ProductDetailsEditView extends GetView<ProductDetailsEditController> {
               controller: controller.priceController,
               decoration: InputDecoration(
                   labelText: 'Price',
-                  labelStyle: const TextStyle(color: Colors.white),
+                  labelStyle: context.theme.textTheme.displayMedium
+                      ?.copyWith(color: Colors.grey),
+                  enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          color:
+                              context.theme.textTheme.displayMedium!.color!)),
                   focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: color))),
               // Add validation logic here
@@ -108,7 +123,12 @@ class ProductDetailsEditView extends GetView<ProductDetailsEditController> {
               controller: controller.quantityController,
               decoration: InputDecoration(
                   labelText: 'Quantity',
-                  labelStyle: const TextStyle(color: Colors.white),
+                  labelStyle: context.theme.textTheme.displayMedium
+                      ?.copyWith(color: Colors.grey),
+                  enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          color:
+                              context.theme.textTheme.displayMedium!.color!)),
                   focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: color))),
               // Add validation logic here
@@ -117,7 +137,8 @@ class ProductDetailsEditView extends GetView<ProductDetailsEditController> {
               value: controller.category,
               decoration: InputDecoration(
                 labelText: 'Category',
-                labelStyle: const TextStyle(color: Colors.white),
+                labelStyle: context.theme.textTheme.displayMedium
+                    ?.copyWith(color: Colors.grey),
                 focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: color),
                 ),
@@ -138,7 +159,12 @@ class ProductDetailsEditView extends GetView<ProductDetailsEditController> {
               controller: controller.locationController,
               decoration: InputDecoration(
                   labelText: 'Location',
-                  labelStyle: const TextStyle(color: Colors.white),
+                  labelStyle: context.theme.textTheme.displayMedium
+                      ?.copyWith(color: Colors.grey),
+                  enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          color:
+                              context.theme.textTheme.displayMedium!.color!)),
                   focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: color))),
               // Add validation logic here

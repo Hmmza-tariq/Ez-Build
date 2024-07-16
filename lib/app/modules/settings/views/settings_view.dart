@@ -4,6 +4,7 @@ import 'package:ez_build/utils/dummy_helper.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -69,6 +70,30 @@ class SettingsView extends GetView<SettingsController> {
               title: Provider.of<StringsManager>(context).help,
               icon: AssetsManager.helpIcon,
               description: '',
+              onTap: () async {
+                final Uri params = Uri(
+                  scheme: 'mailto',
+                  path: 'ezbuild.contact@gmail.com',
+                  query:
+                      'subject=App Feedback&body=Description', //add subject and body here
+                );
+
+                var url = Uri.parse(params.toString());
+                if (await canLaunchUrl(url)) {
+                  await launchUrl(url);
+                } else {
+                  print('Could not launch $url');
+                  Get.showSnackbar(GetSnackBar(
+                    message: 'No email client available',
+                    snackStyle: SnackStyle.FLOATING,
+                    backgroundColor: Theme.of(context).primaryColor,
+                    padding: EdgeInsets.all(20.w),
+                    duration: const Duration(seconds: 3),
+                    margin: EdgeInsets.symmetric(horizontal: 20.w),
+                    borderRadius: 10,
+                  ));
+                }
+              },
             ),
             25.verticalSpace,
             SettingsItem(
